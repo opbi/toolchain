@@ -1,18 +1,19 @@
-import example from 'index';
+import { logger, metrics, metricsHandler, liveHandler } from '../index';
 
-import * as constants from 'constants';
-
-jest.mock('constants');
-
-describe('example', () => {
-  it('works', () => {
-    const result = example();
-    expect(result).toBe('hello world');
+describe('index', function() {
+  it('logger', function() {
+    expect(typeof logger).toBe('object');
   });
 
-  it('would fail if constants corrupt', () => {
-    constants.FOO = 1;
-    constants.BAR = 'foo';
-    expect(example).toThrowErrorMatchingSnapshot();
+  it('metrics', function() {
+    expect(typeof metrics).toBe('object');
+  });
+
+  it('metricsHandler', function() {
+    expect(typeof metricsHandler).toBe('function');
+  });
+
+  it('liveHandler', function() {
+    expect(typeof liveHandler).toBe('function');
   });
 });

@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`example would fail if constants corrupt 1`] = `"Something interesting has happened ;-)"`;
