@@ -2865,10 +2865,10 @@ comment-parser@^0.5.0:
   dependencies:
     readable-stream "^2.0.4"
 
-comment-parser@^0.5.1:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/comment-parser/-/comment-parser-0.5.4.tgz#089840b9cccacad2b769b231ed43081d501b9487"
-  integrity sha512-0h7W6Y1Kb6zKQMJqdX41C5qf9ITCVIsD2qP2RaqDF3GFkXFrmuAuv5zUOuo19YzyC9scjBNpqzuaRQ2Sy5pxMQ==
+comment-parser@^0.5.5:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/comment-parser/-/comment-parser-0.5.5.tgz#c2584cae7c2f0afc773e96b2ee98f8c10cbd693d"
+  integrity sha512-oB3TinFT+PV3p8UwDQt71+HkG03+zwPwikDlKU6ZDmql6QX2zFlQ+G0GGSDqyJhdZi4PSlzFBm+YJ+ebOX3Vgw==
 
 compare-func@^1.3.1:
   version "1.3.2"
@@ -3716,6 +3716,11 @@ es6-promisify@^5.0.0:
   dependencies:
     es6-promise "^4.0.3"
 
+escape-regex-string@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/escape-regex-string/-/escape-regex-string-1.0.6.tgz#f536d8997ab19ec395385dcf2ea28b4e080899eb"
+  integrity sha512-AcaPwAOKpF52ETT4uu4vmpqQphuQGjIEhdDwG/gAJYah8ixJlrSBFjhtLMT7frc9y3RWgOnLov9E0MsRBdeRbw==
+
 escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
@@ -3809,13 +3814,16 @@ eslint-plugin-jsdoc@>=1.1.0:
     jsdoctypeparser "^2.0.0-alpha-8"
     lodash "^4.17.11"
 
-eslint-plugin-jsdoc@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-4.0.0.tgz#c791b37597db349e4879f82b7a2625d3eb85f2df"
-  integrity sha512-ItGZcUuaG7IjIdIF4rBOgoo+HRKd7CwzoC9PBrX9a1xwE6VuIxSbRLk411GKCm/mVhbf4vzcGrU/Ggm3bsk6cA==
+eslint-plugin-jsdoc@^14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-14.0.0.tgz#a40b65b1b6176db1f9680fc054a7a4d22f7fe806"
+  integrity sha512-G+Lb7XnnfeZyYOFnZbLH/BsucDjEwggsD4DQJVfj1M9XOvSXv7v5fhvwXCBdWQXzyZ0uy28ilBRQ33dZSa9LjQ==
   dependencies:
-    comment-parser "^0.5.1"
-    jsdoctypeparser "^2.0.0-alpha-8"
+    comment-parser "^0.5.5"
+    debug "^4.1.1"
+    escape-regex-string "^1.0.6"
+    flat-map-polyfill "^0.3.8"
+    jsdoctypeparser "4.0.0"
     lodash "^4.17.11"
 
 eslint-plugin-prettier@^3.0.0:
@@ -4280,6 +4288,11 @@ flat-cache@^1.2.1:
     del "^2.0.2"
     graceful-fs "^4.1.2"
     write "^0.2.1"
+
+flat-map-polyfill@^0.3.8:
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/flat-map-polyfill/-/flat-map-polyfill-0.3.8.tgz#4ec0bfb7c70e2962f00db03548d3620471fd8697"
+  integrity sha512-ZfmD5MnU7GglUEhiky9C7yEPaNq1/wh36RDohe+Xr3nJVdccwHbdTkFIYvetcdsoAckUKT51fuf44g7Ni5Doyg==
 
 flatstr@^1.0.9:
   version "1.0.12"
@@ -6256,6 +6269,11 @@ jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
   integrity sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
+
+jsdoctypeparser@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/jsdoctypeparser/-/jsdoctypeparser-4.0.0.tgz#f25e212ff8b0e3e9ed76627554392787cd524128"
+  integrity sha512-Bh6AW8eJ1bVdofhYUuqgFOVo0FE9qII+a+Go+juEnAfaDS5lZAiIqBAFm9gDu80OqBcQ1UI3v/8cP+3D5IGVww==
 
 jsdoctypeparser@^2.0.0-alpha-8:
   version "2.0.0-alpha-8"
