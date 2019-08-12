@@ -33,7 +33,7 @@
     "eslint-config-prettier": "^4.0.0",
     "eslint-config-standard-jsdoc": "^0.3.2",
     "eslint-import-resolver-node": "^0.3.2",
-    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-flowtype": "^4.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-jsdoc": "^4.0.0",
