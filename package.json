@@ -1,7 +1,7 @@
 {
   "name": "@opbi/toolchain",
-  "description": "",
-  "keywords": "",
+  "description": "the swiss knife to lift business logic to be production ready",
+  "keywords": "decorators, functional, observability",
   "repository": "git@github.com:opbi/toolchain.git",
   "author": " <zhenyu.lin@opbi.org>",
   "license": "MIT",
@@ -9,8 +9,11 @@
     "access": "public"
   },
   "dependencies": {
-    "import-lazy": "^4.0.0",
+    "compose-function": "^3.0.3",
+    "jaeger-client": "^3.17.2",
+    "moment": "^2.24.0",
     "pino": "^5.17.0",
+    "pino-pretty": "^3.6.1",
     "prom-client": "^12.0.0"
   },
   "devDependencies": {
@@ -50,10 +53,7 @@
     "semantic-release": "^17.0.4"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10.19"
   },
-  "main": "dist/index.js",
-  "optionalDependencies": {
-    "pino-pretty": "^3.6.1"
-  }
+  "main": "dist/index.js"
 }

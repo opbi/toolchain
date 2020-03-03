@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`eventLog when logger present in context log the error event when input function fails 1`] = `Array []`;
+
+exports[`eventLog when logger present in context log the error event when input function fails 2`] = `
+Array [
+  Array [
+    Object {
+      "error": Object {
+        "message": "error",
+      },
+      "event": "original",
+    },
+    "error",
+  ],
+]
+`;
+
+exports[`eventLog when logger present in context log the event when input function call succeeds 1`] = `
+Array [
+  Array [
+    Object {
+      "event": "original",
+    },
+    "original",
+  ],
+]
+`;

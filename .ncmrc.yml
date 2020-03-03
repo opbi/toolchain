@@ -3,8 +3,8 @@
 component:
   type: package
   name: toolchain
-  description: ''
-  keywords: ''
+  description: the swiss knife to lift business logic to be production ready
+  keywords: decorators, functional, observability
   private: false
 package:
   environment: node

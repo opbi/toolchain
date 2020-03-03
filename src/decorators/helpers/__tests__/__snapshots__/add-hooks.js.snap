@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addHooks decorate input function with hooks and fire them in order 1`] = `
+Array [
+  Array [
+    "beforeHook",
+  ],
+  Array [
+    "original",
+  ],
+  Array [
+    "afterHook",
+  ],
+]
+`;
