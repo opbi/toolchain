@@ -31,10 +31,7 @@ describe('reserveName', () => {
   it('the reserved name will be lost if one decorator is not enhanced in chaining', () => {
     const original = () => {};
     const decorator1 = createMockDecorator('decorator1');
-    const decorated = compose(
-      reserveName(decorator),
-      decorator1,
-    )(original);
+    const decorated = compose(reserveName(decorator), decorator1)(original);
     expect(decorated.name).toBe('');
   });
 
