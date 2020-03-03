@@ -1,13 +1,15 @@
 ---
 build:
   nodes:
-    # disable inferred commands
-    # as we're only use the code quality analyser
-    node-with-auto-setup:
-      tests:
+    analysis:
+      # disable inferred commands
+      # as we're only use the code quality analyser
+      project_setup:
         override:
           - true
-    analysis:
+      dependencies:
+        override:
+          - true
       tests:
         override:
           - js-scrutinizer-run
