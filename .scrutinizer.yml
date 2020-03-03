@@ -1,6 +1,12 @@
 ---
 build:
   nodes:
+    # disable inferred commands
+    # as we're only use the code quality analyser
+    node-with-auto-setup:
+      tests:
+        override:
+          - true
     analysis:
       tests:
         override:
