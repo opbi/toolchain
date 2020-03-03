@@ -6,4 +6,4 @@ build:
     analysis:
       environment:
         node:
-          version: 8.10.0
+          version: 10.19
