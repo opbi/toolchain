@@ -1,9 +1,7 @@
 ---
-checks:
-  javascript: true
 build:
   nodes:
     analysis:
-      environment:
-        node:
-          version: 10.19
+      tests:
+        override:
+          - js-scrutinizer-run
