@@ -1,13 +1,13 @@
-import polling from '../polling';
+import callPolling from '../call-polling';
 
-describe('polling', () => {
+describe('callPolling', () => {
   it('return data combined from multi polling responses', async () => {
     const call = jest
       .fn()
       .mockReturnValueOnce({ finished: false, value: 'no' })
       .mockReturnValueOnce({ finished: false, value: 'no' })
       .mockReturnValueOnce({ finished: true, value: 'yes' });
-    const decorated = polling({
+    const decorated = callPolling({
       until: result => result.finished,
     })(call);
     const data = await decorated();
@@ -20,7 +20,7 @@ describe('polling', () => {
       .mockReturnValueOnce({ ok: false, value: 'no' })
       .mockReturnValueOnce({ ok: false, value: 'no' })
       .mockReturnValueOnce({ ok: true, value: 'yes' });
-    const decorated = polling({
+    const decorated = callPolling({
       until: ({ ok }) => ok,
       mapping: ({ value }) => value,
     })(original);
@@ -35,7 +35,7 @@ describe('polling', () => {
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('yes');
     const startTime = Date.now();
-    const decorated = polling({
+    const decorated = callPolling({
       until: result => result === 'yes',
       interval: 2 * 1000,
     })(original);
@@ -50,7 +50,7 @@ describe('polling', () => {
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('yes');
-    const decorated = polling({
+    const decorated = callPolling({
       until: result => result === 'yes',
       interval: 2 * 1000,
       timeout: 2000,
@@ -69,7 +69,7 @@ describe('polling', () => {
       .mockImplementationOnce(() => {
         throw Error('expected');
       });
-    const decorated = polling({
+    const decorated = callPolling({
       until: result => result === 'yes',
     })(original);
 

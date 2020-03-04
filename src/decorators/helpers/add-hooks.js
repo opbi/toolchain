@@ -2,7 +2,9 @@
   a standard decorator creator
   to hook side-effects to an action
   * naming convention of the decorators: [hook] - [context.component] - [behavior]
-  ** if multiple hooks are used, 'event' is used to name hook
+  ** [hook] = call(finish), error, event(finish/error)
+  ** [context.component]  = logger, metrics, progress, etc.
+  ** [behavior] = retry, handle, mute, etc.
  */
 const addHooks = ({
   bypassHook = () => false,
