@@ -57,6 +57,29 @@ describe('addHooks', () => {
     }
   });
 
+  it('return result available in recursive errorHook instead of throwing an error', async () => {
+    const original = result => {
+      callOrder('original');
+      if (result) {
+        return 'result';
+      }
+      const error = { message: 'error' };
+      throw error;
+    };
+
+    const recursiveErrorHookWithResult = (e, p, m, c, action) => {
+      const result = action(true);
+      return result;
+    };
+
+    const decorated = addHooks({ errorHook: recursiveErrorHookWithResult })(
+      original,
+    );
+
+    const result = await decorated();
+    expect(result).toBe('result');
+  });
+
   it('bypass hooks when bypassHook condition met', async () => {
     const bypassHook = (param, meta, context) => !context.something;
     const original = callOrderWithName('original');

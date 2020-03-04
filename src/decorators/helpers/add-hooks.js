@@ -19,7 +19,11 @@ const addHooks = ({
 
     return result;
   } catch (e) {
-    await errorHook(e, param, meta, context, action);
+    const errorHookResult = await errorHook(e, param, meta, context, action);
+
+    if (errorHookResult) {
+      return errorHookResult;
+    }
 
     throw e;
   }
