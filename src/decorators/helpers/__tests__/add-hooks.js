@@ -40,7 +40,7 @@ describe('addHooks', () => {
     expect(result).toBe('result');
   });
 
-  it('throws error and fire beforeHook and errorHook', async () => {
+  it('fire beforeHook and errorHook when throws an error', async () => {
     const original = () => {
       callOrder('original');
       const error = { message: 'error' };
@@ -93,5 +93,59 @@ describe('addHooks', () => {
     await decorated();
 
     expect(callOrder.mock.calls).toMatchSnapshot();
+  });
+
+  it('persist store between hooks if set', async () => {
+    const store = { foo: 'bar' };
+    const storeHook = () => store;
+    const original = () => 'yes';
+    const decorated = addHooks({
+      storeHook,
+      beforeHook: (p, m, c, a, s) => {
+        expect(s).toEqual(store);
+      },
+      afterHook: (r, p, m, c, a, s) => {
+        expect(s).toEqual(store);
+      },
+    })(original);
+
+    await decorated();
+  });
+
+  it('persist store to errorHook', async () => {
+    const store = { foo: 'bar' };
+    const storeHook = () => store;
+    const original = () => {
+      const error = { message: 'error' };
+      throw error;
+    };
+    const decorated = addHooks({
+      storeHook,
+      errorHook: (e, p, m, c, a, s) => {
+        expect(s).toEqual(store);
+      },
+    })(original);
+    try {
+      await decorated();
+    } catch (e) {
+      expect(e.message).toBe('error');
+    }
+  });
+
+  it('allow using actionHook to modify action with access to store', () => {
+    const store = { foo: 'bar' };
+    const storeHook = () => store;
+    const original = () => {
+      const error = { message: 'error' };
+      throw error;
+    };
+    const actionHook = (p, m, c, a, s) => {
+      expect(s).toEqual(store);
+    };
+    const decorated = addHooks({
+      storeHook,
+      actionHook,
+    })(original);
+    decorated();
   });
 });

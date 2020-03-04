@@ -22,7 +22,7 @@ Array [
 ]
 `;
 
-exports[`addHooks throws error and fire beforeHook and errorHook 1`] = `
+exports[`addHooks fire beforeHook and errorHook when throws an error 1`] = `
 Array [
   Array [
     "beforeHook",
