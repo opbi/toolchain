@@ -1,6 +1,6 @@
 import addHooks from './helpers/add-hooks';
-import findMetrics from './helpers/find-metrics';
-import findMetricsLabels from './helpers/find-metrics-labels';
+import findMetrics from './utils/find-metrics';
+import findMetricsLabels from './utils/find-metrics-labels';
 
 const metricsError = ({ setExtraLabels = () => {}, setValue = () => 1 } = {}) =>
   addHooks({

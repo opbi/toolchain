@@ -1,5 +1,5 @@
 export { default as compose } from 'compose-function';
-export { default as reserveNameCompose } from './helpers/reserve-name-compose';
+export { default as reserveNameCompose } from './composer/reserve-name-compose';
 
 export { default as retriable } from './retriable';
 export { default as conditionalRetry } from './conditional-retry';

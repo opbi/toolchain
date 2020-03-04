@@ -3,7 +3,6 @@
   an anonymous function (.name: undefined) would be returned
   this helper helps to reserve the funcion name
  */
-
 const setFunctionName = (targetFunction, name) => {
   const output = targetFunction;
   Object.defineProperty(output, 'name', {
@@ -13,10 +12,11 @@ const setFunctionName = (targetFunction, name) => {
   return output;
 };
 
-// higher-order decorator/enhancer: the decorator for decorators
-// usage: reserveName(decorator)(inputFunction)(...args)
-// note: different from chaining decorators
-//       decorator1(decorator2(inputFunction))(...args)
+/*
+  a decorator enhancer
+  used to enhance decorators to preserve the input function name
+  reserveName(decorator)(inputFunction)(...args)
+ */
 const reserveName = decorators => inputFunction =>
   setFunctionName(decorators(inputFunction), inputFunction.name);
 

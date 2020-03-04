@@ -1,7 +1,7 @@
 /*
-  a type of decorator to add hooks to a function
+  a standard decorator template
+  to hook healthy side-effects to a function
  */
-
 const addHooks = ({
   bypassHook = () => false,
   beforeHook = () => {},
