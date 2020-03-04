@@ -4,10 +4,10 @@ import addHooks from './helpers/add-hooks';
 /*
   a decorator to retry action until condition met or reach maxRetries
  */
-const conditionalRetry = config =>
+const conditionalRetry = (config = {}) =>
   addHooks({
     errorHook: async (e, param, meta, context, action) => {
-      const { condition = () => true, maxRetries = 1, delay } = config;
+      const { condition = () => false, maxRetries = 3, delay } = config;
       const { retries = 0 } = meta;
       if (retries < maxRetries && condition(e, param, meta, context)) {
         if (delay) await sleep(delay);
