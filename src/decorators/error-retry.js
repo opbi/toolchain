@@ -4,7 +4,7 @@ import addHooks from './helpers/add-hooks';
 /*
   a decorator to retry action until condition met or reach maxRetries
  */
-const retryUntil = (config = {}) =>
+const errorRetry = (config = {}) =>
   addHooks({
     errorHook: async (e, param, meta, context, action) => {
       const { condition = () => true, maxRetries = 3, delay } = config;
@@ -17,7 +17,7 @@ const retryUntil = (config = {}) =>
           retries: retries + 1,
           maxRetries,
         };
-        const result = await retryUntil(config)(action)(
+        const result = await errorRetry(config)(action)(
           param,
           updatedMeta,
           context,
@@ -28,4 +28,4 @@ const retryUntil = (config = {}) =>
     },
   });
 
-export default retryUntil;
+export default errorRetry;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`polling return data combined from multi polling responses 1`] = `
+exports[`callPolling return data combined from multi polling responses 1`] = `
 Array [
   Object {
     "finished": false,

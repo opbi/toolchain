@@ -58,4 +58,50 @@ describe('errorHandler', () => {
       expect(e.message).toBe('error');
     }
   });
+
+  it('does nothing if condition not met', async () => {
+    const original = () => {
+      const error = { message: 'error' };
+      throw error;
+    };
+    const handler = jest.fn();
+    const decorated = errorHandler({
+      handler,
+    })(original);
+
+    try {
+      await decorated();
+    } catch (e) {
+      expect(e.message).toBe('error');
+      expect(handler.mock.calls).toHaveLength(0);
+    }
+  });
+
+  it('does nothing if config not set', async () => {
+    const original = () => {
+      const error = { message: 'error' };
+      throw error;
+    };
+    const decorated = errorHandler()(original);
+
+    try {
+      await decorated();
+    } catch (e) {
+      expect(e.message).toBe('error');
+    }
+  });
+
+  it('does not throw error if handler not set', async () => {
+    const original = () => {
+      const error = { message: 'error' };
+      throw error;
+    };
+    const decorated = errorHandler({ condition: () => true })(original);
+
+    try {
+      await decorated();
+    } catch (e) {
+      expect(e.message).toBe('error');
+    }
+  });
 });
