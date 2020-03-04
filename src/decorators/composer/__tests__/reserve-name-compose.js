@@ -2,7 +2,7 @@ import { logger } from 'tools';
 
 import reserveNameCompose from '../reserve-name-compose';
 
-import suppressError from '../../suppress-error';
+import errorMute from '../../error-mute';
 import eventLog from '../../event-log';
 
 logger.info = jest.fn();
@@ -34,7 +34,7 @@ describe('reserveName', () => {
       const e = { message: 'error' };
       throw e;
     };
-    const decorated = reserveNameCompose(eventLog(), suppressError())(original);
+    const decorated = reserveNameCompose(eventLog(), errorMute())(original);
 
     try {
       const result = await decorated({}, {}, { logger });

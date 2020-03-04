@@ -1,6 +1,8 @@
 /*
-  a standard decorator template
-  to hook healthy side-effects to a function
+  a standard decorator creator
+  to hook side-effects to an action
+  * naming convention of the decorators: [hook] - [context.component] - [behavior]
+  ** if multiple hooks are used, 'event' is used to name hook
  */
 const addHooks = ({
   bypassHook = () => false,
