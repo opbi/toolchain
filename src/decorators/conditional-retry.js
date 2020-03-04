@@ -1,35 +1,31 @@
 import sleep from 'lib/sleep';
+import addHooks from './helpers/add-hooks';
 
-// TODO: try add recursiveErrorHook to addHooks
-const conditionalRetry = (config = {}) => action => async (
-  param,
-  meta = {},
-  context,
-) => {
-  try {
-    const result = await action(param, meta, context);
-    return result;
-  } catch (e) {
-    const { condition = () => true, maxRetries = 1, delay } = config;
-    const { retries = 0 } = meta;
+/*
+  a decorator to retry action until condition met or reach maxRetries
+ */
+const conditionalRetry = config =>
+  addHooks({
+    errorHook: async (e, param, meta, context, action) => {
+      const { condition = () => true, maxRetries = 1, delay } = config;
+      const { retries = 0 } = meta;
+      if (retries < maxRetries && condition(e, param, meta, context)) {
+        if (delay) await sleep(delay);
 
-    if (retries < maxRetries && condition(e, param, meta, context)) {
-      if (delay) await sleep(delay);
-
-      const result = await conditionalRetry(config)(action)(
-        param,
-        {
+        const updatedMeta = {
           ...meta,
           retries: retries + 1,
           maxRetries,
-        },
-        context,
-      );
-      return result;
-    }
-
-    throw e;
-  }
-};
+        };
+        const result = await conditionalRetry(config)(action)(
+          param,
+          updatedMeta,
+          context,
+        );
+        return result;
+      }
+      throw e;
+    },
+  });
 
 export default conditionalRetry;
