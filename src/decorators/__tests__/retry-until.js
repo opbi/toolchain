@@ -1,6 +1,6 @@
-import conditionalRetry from '../conditional-retry';
+import retryUntil from '../retry-until';
 
-describe('conditionalRetry', () => {
+describe('retryUntil', () => {
   it('does not retry if condition not set', async () => {
     const original = jest
       .fn()
@@ -10,7 +10,7 @@ describe('conditionalRetry', () => {
       .mockImplementationOnce(() => {
         throw Error('error');
       });
-    const decorated = conditionalRetry()(original);
+    const decorated = retryUntil()(original);
     try {
       await decorated();
     } catch (e) {
@@ -28,7 +28,7 @@ describe('conditionalRetry', () => {
         throw Error('error');
       });
     const condition = e => e.message === 'timeout';
-    const decorated = conditionalRetry({
+    const decorated = retryUntil({
       condition,
       maxRetries: 2,
     })(original);
@@ -49,7 +49,7 @@ describe('conditionalRetry', () => {
         return 'yes';
       });
     const condition = e => e.message === 'timeout';
-    const decorated = conditionalRetry({
+    const decorated = retryUntil({
       condition,
     })(original);
     const result = await decorated();
@@ -67,7 +67,7 @@ describe('conditionalRetry', () => {
       });
     const condition = e => e.message === 'timeout';
     const startTime = Date.now();
-    const decorated = conditionalRetry({
+    const decorated = retryUntil({
       condition,
       delay: 2000,
     })(original);

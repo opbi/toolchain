@@ -2,7 +2,7 @@ export { default as compose } from 'compose-function';
 export { default as reserveNameCompose } from './composer/reserve-name-compose';
 
 export { default as retriable } from './retriable';
-export { default as conditionalRetry } from './conditional-retry';
+export { default as retryUntil } from './retry-until';
 export { default as polling } from './polling';
 
 export { default as eventLog } from './event-log';
