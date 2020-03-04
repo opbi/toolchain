@@ -3,12 +3,12 @@
  */
 
 const addHooks = ({
-  guard = () => true,
+  bypassHook = () => false,
   beforeHook = () => {},
   afterHook = () => {},
   errorHook = () => {},
-}) => action => async (param, meta = {}, context = {}) => {
-  if (!guard(param, meta, context)) return action(param, meta, context);
+} = {}) => action => async (param, meta = {}, context = {}) => {
+  if (bypassHook(param, meta, context)) return action(param, meta, context);
 
   try {
     await beforeHook(param, meta, context, action);

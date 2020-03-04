@@ -4,7 +4,7 @@ import findMetricsLabels from './helpers/find-metrics-labels';
 
 const metricsError = ({ setExtraLabels = () => {}, setValue = () => 1 } = {}) =>
   addHooks({
-    guard: (p, m, c) => c.metrics,
+    bypassHook: (p, m, c) => !c.metrics,
     errorHook: (e, param, meta, context, action) => {
       const { metrics } = context;
       const counter = findMetrics({ action, type: 'error', metrics });
