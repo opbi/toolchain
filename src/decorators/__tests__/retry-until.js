@@ -1,9 +1,12 @@
 import retryUntil from '../retry-until';
 
 describe('retryUntil', () => {
-  it('does not retry if condition not set', async () => {
+  it('retry until default maxRetries if config/condition not set', async () => {
     const original = jest
       .fn()
+      .mockImplementationOnce(() => {
+        throw Error('timeout');
+      })
       .mockImplementationOnce(() => {
         throw Error('timeout');
       })
@@ -14,7 +17,7 @@ describe('retryUntil', () => {
     try {
       await decorated();
     } catch (e) {
-      expect(e.message).toBe('timeout');
+      expect(e.message).toBe('error');
     }
   });
 

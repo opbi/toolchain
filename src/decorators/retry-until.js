@@ -7,7 +7,7 @@ import addHooks from './helpers/add-hooks';
 const retryUntil = (config = {}) =>
   addHooks({
     errorHook: async (e, param, meta, context, action) => {
-      const { condition = () => false, maxRetries = 3, delay } = config;
+      const { condition = () => true, maxRetries = 3, delay } = config;
       const { retries = 0 } = meta;
       if (retries < maxRetries && condition(e, param, meta, context)) {
         if (delay) await sleep(delay);
