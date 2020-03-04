@@ -2,6 +2,10 @@ import addHooks from './helpers/add-hooks';
 import findMetrics from './utils/find-metrics';
 import findMetricsLabels from './utils/find-metrics-labels';
 
+/*
+  a decorator to add count of errors of the action in metrics
+  using the metrics client in context
+ */
 const metricsError = ({ setExtraLabels = () => {}, setValue = () => 1 } = {}) =>
   addHooks({
     bypassHook: (p, m, c) => !c.metrics,

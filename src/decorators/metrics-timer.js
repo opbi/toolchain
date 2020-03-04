@@ -2,6 +2,10 @@ import addHooks from './helpers/add-hooks';
 import findMetrics from './utils/find-metrics';
 import findMetricsLabels from './utils/find-metrics-labels';
 
+/*
+  a decorator to timing action execution time in both success/error cases
+  and send metrics using the client attached in context
+ */
 const metricsTimer = ({ extralabels = () => {} } = {}) =>
   addHooks({
     bypassHook: (p, m, { metrics }) => !metrics,

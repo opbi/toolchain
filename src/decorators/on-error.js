@@ -1,13 +1,15 @@
 import addHooks from './helpers/add-hooks';
 
-// side effect in case of error, but not block the error throw
-const onError = (errorCondition, errorHandler) =>
+/*
+  a decorator to add conditional side-effect before error being thrown
+  e.g. it can be used together with error-metrics to create conditional error-metrics
+ */
+const onError = ({ condition = () => false, handler }) =>
   addHooks({
     errorHook: (e, param, meta, context, action) => {
-      if (errorCondition(e)) {
-        return errorHandler(e, param, meta, context, action);
+      if (condition(e)) {
+        handler(e, param, meta, context, action);
       }
-      return undefined;
     },
   });
 
