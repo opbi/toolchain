@@ -10,6 +10,7 @@ const devOrTestConfig = {
 };
 
 const prodConfig = {
+  // disable timestamp in prod to avoid conflict with fluentd
   timestamp: false,
   base: null,
   messageKey: 'message',

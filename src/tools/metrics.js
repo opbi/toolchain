@@ -12,7 +12,7 @@ const typeMetricsMap = {
 // k8s meta data such as `app` would be added
 // so it is not very necessary to add app name into metrics namespace
 export const metricsNamespace =
-  process.env.METRICS_NAMESPACE || 'domalch_metrics';
+  process.env.METRICS_NAMESPACE || 'custom_metrics';
 
 const metrics = {};
 

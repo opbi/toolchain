@@ -1,4 +1,4 @@
-import { logger, metrics } from '../index';
+import { logger, metrics, tracer } from '../index';
 
 describe('import', () => {
   it('logger', () => {
@@ -7,5 +7,9 @@ describe('import', () => {
 
   it('metrics', () => {
     expect(typeof metrics).toBe('object');
+  });
+
+  it('tracer', () => {
+    expect(typeof tracer).toBe('object');
   });
 });

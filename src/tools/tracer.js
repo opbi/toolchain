@@ -3,6 +3,7 @@ import { initTracer } from 'jaeger-client';
 import logger from './logger';
 
 const config = {
+  // serviceName is anchored to APP_NAME exported in Makefile
   serviceName: process.env.APP_NAME,
   sampler: {
     type: 'const',
