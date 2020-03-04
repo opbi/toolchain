@@ -1,18 +1,31 @@
 import polling from '../polling';
 
 describe('polling', () => {
-  it('poll until get the result', async () => {
+  it('return data combined from multi polling responses', async () => {
+    const call = jest
+      .fn()
+      .mockReturnValueOnce({ finished: false, value: 'no' })
+      .mockReturnValueOnce({ finished: false, value: 'no' })
+      .mockReturnValueOnce({ finished: true, value: 'yes' });
+    const decorated = polling({
+      until: result => result.finished,
+    })(call);
+    const data = await decorated();
+    expect(data).toMatchSnapshot();
+  });
+
+  it('return data combined from multi polling calls with mapping', async () => {
     const original = jest
       .fn()
-      .mockReturnValueOnce('no')
-      .mockReturnValueOnce('no')
-      .mockReturnValueOnce('yes');
+      .mockReturnValueOnce({ ok: false, value: 'no' })
+      .mockReturnValueOnce({ ok: false, value: 'no' })
+      .mockReturnValueOnce({ ok: true, value: 'yes' });
     const decorated = polling({
-      until: result => result === 'yes',
+      until: ({ ok }) => ok,
+      mapping: ({ value }) => value,
     })(original);
     const result = await decorated();
-    expect(result).toBe('yes');
-    expect(original.mock.calls).toHaveLength(3);
+    expect(result).toEqual(['no', 'no', 'yes']);
   });
 
   it('poll with the set interval', async () => {
@@ -65,19 +78,5 @@ describe('polling', () => {
     } catch (e) {
       expect(e.message).toBe('expected');
     }
-  });
-
-  it('support accumulate function to gather data from different polling', async () => {
-    const original = jest
-      .fn()
-      .mockReturnValueOnce({ ok: false, value: 'no' })
-      .mockReturnValueOnce({ ok: false, value: 'no' })
-      .mockReturnValueOnce({ ok: true, value: 'yes' });
-    const decorated = polling({
-      until: ({ ok }) => ok,
-      accumulate: ({ value }) => value,
-    })(original);
-    const result = await decorated();
-    expect(result).toEqual(['no', 'no', 'yes']);
   });
 });

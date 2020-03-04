@@ -1,43 +1,35 @@
 import sleep from 'lib/sleep';
 
-// TODO: test data object would need to be instanced
-// if polling used by multiple actions
-const data = [];
+/*
+  a decorator used on request calls of remote endpoint with batch data
+ */
+const polling = config => action => async (param, meta = {}, context = {}) => {
+  const {
+    until,
+    mapping = data => data,
+    interval = 1000,
+    timeout = 30 * 1000,
+  } = config;
+  const { pollingStart = Date.now(), pollingData = [] } = context;
 
-const polling = ({
-  until,
-  accumulate,
-  transform,
-  interval = 1000,
-  timeout = 30 * 1000,
-} = {}) => action => async (param, meta = {}, context) => {
-  const { pollingStart = Date.now() } = meta;
+  const res = await action(param, meta, context);
+  pollingData.push(mapping(res));
 
-  let result;
-  result = await action(param, meta, context);
+  // until the response signals process finished
+  if (until(res)) return pollingData;
 
-  if (accumulate) data.push(accumulate(result));
-
-  if (until(result)) {
-    return accumulate ? data : result;
-  }
-
-  const lapsed = Date.now() - pollingStart;
-  if (lapsed > timeout) {
+  if (Date.now() - pollingStart > timeout) {
     throw Error('polling timeout');
   }
 
   await sleep(interval);
-  result = await polling({ until, accumulate, interval, timeout })(action)(
-    param,
-    { ...meta, pollingStart },
-    context,
-  );
 
-  if (!accumulate) {
-    return result;
-  }
-  return transform ? transform(data) : data;
+  // return later combined result recursively
+  return polling(config)(action)(param, meta, {
+    ...context,
+    pollingStart,
+    pollingData,
+  });
 };
 
 export default polling;
