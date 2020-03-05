@@ -46,14 +46,32 @@ const add = ({ type, name, ...specs }) => {
   metricsUnits[name] = m;
 };
 
+/**
+ * Load a list of metrics specs to metricsUnits.
+ *
+ * @param  {Array} list - List of metrics specs.
+ */
 const load = list => {
   list.forEach(m => {
     add(m);
   });
 };
 
+/**
+ * List the metrics unit instances stored in metricsUnits.
+ *
+ * @returns {object} <{[metrics name]: metrics unit instance}>.
+ */
 const list = () => metricsUnits;
 
+/**
+ * Find a metrics unit by action/type or by name(higher priority).
+ *
+ * @param  {string} options.action - Name of the action function.
+ * @param  {string} options.type -   Type of metrics attached to the action function.
+ * @param  {string} options.name -   Name of the metrics unit.
+ * @returns {object}                The metrics unit instance.
+ */
 const find = ({ action, type, name }) => {
   const unitName = name || `${action}_${type}`;
   const unit = metricsUnits[unitName];
@@ -63,6 +81,9 @@ const find = ({ action, type, name }) => {
   return unit;
 };
 
+/**
+ * Clear instances stored in metricsUnits and prometheus.register.
+ */
 const reset = () => {
   prometheus.register.clear();
   metricsUnits = {};
