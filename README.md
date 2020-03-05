@@ -184,14 +184,14 @@ export default cancelSubscription;
 
 Currently available decorators are as following:
 
-* [callPolling]()
-* [errorCounter]()
-* [errorHandler]()
-* [errorMute]()
-* [errorRetry]()
-* [errorTag]()
-* [eventLogger]()
-* [eventTimer]()
+* [callPolling](https://github.com/opbi/toolchain/blob/master/src/decorators/call-polling.js)
+* [errorCounter](https://github.com/opbi/toolchain/blob/master/src/decorators/error-counter.js)
+* [errorHandler](https://github.com/opbi/toolchain/blob/master/src/decorators/error-handler.js)
+* [errorMute](https://github.com/opbi/toolchain/blob/master/src/decorators/error-mute.js)
+* [errorRetry](https://github.com/opbi/toolchain/blob/master/src/decorators/error-retry.js)
+* [errorTag](https://github.com/opbi/toolchain/blob/master/src/decorators/error-tag.js)
+* [eventLogger](https://github.com/opbi/toolchain/blob/master/src/decorators/event-logger.js)
+* [eventTimer](https://github.com/opbi/toolchain/blob/master/src/decorators/event-timer.js)
 
 #### Extension
 
