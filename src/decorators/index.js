@@ -1,5 +1,4 @@
-export { default as compose } from 'compose-function';
-export { default as reserveNameCompose } from './composer/reserve-name-compose';
+export { default as recompose } from './composer/reserve-name-compose';
 
 export { default as progressAdd } from './progress-add';
 export { default as jobProgress } from './job-progress';
