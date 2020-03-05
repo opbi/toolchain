@@ -10,7 +10,7 @@ export default class Timer extends Summary {
     const { labelNames } = this;
     const labels = objectOnlyKeys(untrimmedLabels, labelNames);
     const timerStopper = this.startTimer(labels);
-    return dirtyEndLabels => {
+    return (dirtyEndLabels = {}) => {
       const endLabels = objectOnlyKeys(dirtyEndLabels, labelNames);
       timerStopper(endLabels);
     };

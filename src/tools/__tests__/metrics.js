@@ -8,7 +8,7 @@ const metricsSpecs = [
   },
   {
     name: 'dbConnect_timer',
-    type: 'summary',
+    type: 'timer',
     help: `the time to create db connection to monitor upstream service health`,
     labelNames: ['envId'],
   },
@@ -104,5 +104,13 @@ describe('metrics', () => {
     counter.count({ envId: 'test' });
     counter.count({ envId: 'prod' });
     expect(counter.stats('envId')).toMatchSnapshot();
+  });
+
+  it('timer.start() with excessive labels or none', async () => {
+    const timer = metrics.find({ name: 'dbConnect_timer' });
+    const timerStop = timer.start({ envId: 'test', foo: 'bar' });
+    timerStop();
+    timer.start()();
+    expect(timer.get().values[0]).toBeDefined();
   });
 });
