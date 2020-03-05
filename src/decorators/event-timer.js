@@ -4,7 +4,7 @@ import addHooks from './helpers/add-hooks';
   a decorator to timing action execution time in both success/error cases
   and send metrics using the client attached in context
  */
-const metricsTimer = ({ parseLabel = () => {} } = {}) =>
+const eventTimer = ({ parseLabel = () => {} } = {}) =>
   addHooks({
     bypassHook: (p, m, { metrics }) => !metrics,
     storageHook: (p, m, c, action) => {
@@ -21,4 +21,4 @@ const metricsTimer = ({ parseLabel = () => {} } = {}) =>
     },
   });
 
-export default metricsTimer;
+export default eventTimer;
