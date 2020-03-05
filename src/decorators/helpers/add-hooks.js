@@ -1,11 +1,3 @@
-/*
-  a standard decorator creator
-  to hook side-effects to an action
-  * naming convention of the decorators: [hook] - [context.component] - [behavior]
-  ** [hook] = call(finish), error, event(finish/error)
-  ** [context.component]  = logger, metrics, progress, etc.
-  ** [behavior] = retry, handle, mute, etc.
- */
 /**
  * A decorator creator to maintain a standard pattern
  * so that decorator behaviour is more predictable with lgihter test.

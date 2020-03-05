@@ -1,22 +1,21 @@
 import sleep from 'lib/sleep';
 
 /**
- * A decorator used on request calls of remote endpoint with batch data.
+ * A decorator used to poll remote endpoint with action.
  *
- * @param  {object} config - The decorator config.
- * @param  {function(Array|object): boolean} config.until - The function to set conditions to stop the polling and return the data.
- * @param  {function(Array|object): Array|object}  config.mapping - The mapping function to transform response to the data format needed.
- * @param {number}  config.interval - Time to wait between each polling call.
- * @param {number}  config.timeout - The max time to wait for the polling before abort it.
+ * @param {object} options -
+ * @param {Function} options.until - The function to set conditions to stop the polling and return the data.
+ * @param {Function} options.mapping - The mapping function to transform response to the data format needed.
+ * @param {number}  options.interval - Time to wait between each polling call.
+ * @param {number}  options.timeout - The max time to wait for the polling before abort it.
  * @returns {Function}        The decorated function returns the polling result.
  */
-const polling = config => action => async (param, meta = {}, context = {}) => {
-  const {
-    until,
-    mapping = data => data,
-    interval = 1000,
-    timeout = 30 * 1000,
-  } = config;
+const callPolling = ({
+  until,
+  mapping = data => data,
+  interval = 1000,
+  timeout = 30 * 1000,
+}) => action => async (param, meta = {}, context = {}) => {
   const { pollingStart = Date.now(), pollingData = [] } = context;
 
   const res = await action(param, meta, context);
@@ -32,11 +31,16 @@ const polling = config => action => async (param, meta = {}, context = {}) => {
   await sleep(interval);
 
   // return later combined result recursively
-  return polling(config)(action)(param, meta, {
+  return callPolling({
+    until,
+    mapping,
+    interval,
+    timeout,
+  })(action)(param, meta, {
     ...context,
     pollingStart,
     pollingData,
   });
 };
 
-export default polling;
+export default callPolling;
