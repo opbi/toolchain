@@ -1,18 +1,18 @@
 import { logger } from 'tools';
 
-import eventLog from '../event-log';
+import eventLogger from '../event-logger';
 
 logger.info = jest.fn();
 logger.error = jest.fn();
 
-describe('eventLog', () => {
+describe('eventLogger', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   it('log the success event with param when enabled', async () => {
     const original = async ({ text }) => text;
-    const decorated = eventLog({ logParam: true })(original);
+    const decorated = eventLogger({ logParam: true })(original);
     const result = await decorated({ text: 'yes' }, {}, { logger });
 
     expect(result).toBe('yes');
@@ -21,7 +21,7 @@ describe('eventLog', () => {
 
   it('log the success event with result when enabled', async () => {
     const original = async () => 'yes';
-    const decorated = eventLog({ logResult: true })(original);
+    const decorated = eventLogger({ logResult: true })(original);
     const result = await decorated({}, {}, { logger });
 
     expect(result).toBe('yes');
@@ -31,9 +31,9 @@ describe('eventLog', () => {
   it('log chained events from upper level function call', async () => {
     const original = () => {};
     const upper = (p, m, c) => {
-      return eventLog()(original)(p, m, c);
+      return eventLogger()(original)(p, m, c);
     };
-    await eventLog()(upper)({}, {}, { logger });
+    await eventLogger()(upper)({}, {}, { logger });
     expect(logger.info.mock.calls).toMatchSnapshot();
   });
 
@@ -42,7 +42,7 @@ describe('eventLog', () => {
       const e = { message: 'error' };
       throw e;
     };
-    const decorated = eventLog()(original);
+    const decorated = eventLogger()(original);
 
     try {
       await decorated({}, {}, { logger });
@@ -58,7 +58,7 @@ describe('eventLog', () => {
       const e = new Error('error');
       throw e;
     };
-    const decorated = eventLog({
+    const decorated = eventLogger({
       errorParser: e => ({
         message: e.message,
         stack: e.stack.substring(0, 20),

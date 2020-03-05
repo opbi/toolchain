@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`eventLog log chained events from upper level function call 1`] = `
+exports[`eventLogger log chained events from upper level function call 1`] = `
 Array [
   Array [
     Object {
@@ -17,9 +17,9 @@ Array [
 ]
 `;
 
-exports[`eventLog log the error event when input function fails 1`] = `Array []`;
+exports[`eventLogger log the error event when input function fails 1`] = `Array []`;
 
-exports[`eventLog log the error event when input function fails 2`] = `
+exports[`eventLogger log the error event when input function fails 2`] = `
 Array [
   Array [
     Object {
@@ -33,9 +33,9 @@ Array [
 ]
 `;
 
-exports[`eventLog log the parsed error when errorParse set 1`] = `Array []`;
+exports[`eventLogger log the parsed error when errorParse set 1`] = `Array []`;
 
-exports[`eventLog log the parsed error when errorParse set 2`] = `
+exports[`eventLogger log the parsed error when errorParse set 2`] = `
 Array [
   Array [
     Object {
@@ -51,7 +51,7 @@ Array [
 ]
 `;
 
-exports[`eventLog log the success event with param when enabled 1`] = `
+exports[`eventLogger log the success event with param when enabled 1`] = `
 Array [
   Array [
     Object {
@@ -65,7 +65,7 @@ Array [
 ]
 `;
 
-exports[`eventLog log the success event with result when enabled 1`] = `
+exports[`eventLogger log the success event with result when enabled 1`] = `
 Array [
   Array [
     Object {

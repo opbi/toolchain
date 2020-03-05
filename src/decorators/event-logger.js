@@ -11,7 +11,7 @@ import addHooks from './helpers/add-hooks';
  * @param  {boolean}   options.logResult -   If log the result.
  * @param  {Function} options.errorParser - Parse function to keep only useful information from the error in the log.
  */
-const eventLog = ({ logParam, logResult, errorParser = e => e } = {}) =>
+const eventLogger = ({ logParam, logResult, errorParser = e => e } = {}) =>
   addHooks({
     bypassHook: (p, m, c) => !c.logger,
     storeHook: (p, meta, c, action) => {
@@ -34,4 +34,4 @@ const eventLog = ({ logParam, logResult, errorParser = e => e } = {}) =>
     },
   });
 
-export default eventLog;
+export default eventLogger;

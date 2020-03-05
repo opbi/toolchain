@@ -11,5 +11,5 @@ export { default as errorHandler } from './error-handler';
 export { default as errorCounter } from './error-counter';
 export { default as errorTag } from './error-tag';
 
-export { default as eventLog } from './event-log';
+export { default as eventLogger } from './event-logger';
 export { default as eventTimer } from './event-timer';
