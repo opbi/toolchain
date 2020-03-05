@@ -1,11 +1,15 @@
 import addHooks from './helpers/add-hooks';
 
-/*
-  a decorator to attach standard log behaviour to action
+/**
+ * A decorator to attach standard log behaviour to action
   bypass: when logger instance is not available in context
   augment: parse action name and added to action meta to be chained in sub-actions
   after: log success event, with options to include param and result
-  error: log error event, with option to parse error
+  error: log error event, with option to parse error.
+ *
+ * @param  {boolean}   options.logParam -    Whether to include param in the log.
+ * @param  {boolean}   options.logResult -   If log the result.
+ * @param  {Function} options.errorParser - Parse function to keep only useful information from the error in the log.
  */
 const eventLog = ({ logParam, logResult, errorParser = e => e } = {}) =>
   addHooks({

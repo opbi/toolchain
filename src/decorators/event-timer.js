@@ -1,8 +1,10 @@
 import addHooks from './helpers/add-hooks';
 
-/*
-  a decorator to timing action execution time in both success/error cases
-  and send metrics using the client attached in context
+/**
+ * A decorator to timing action execution time in both success/error cases
+  and send metrics using the client attached in context.
+ *
+ * @param  {Function} options.parseLabel - Function use to include labels that are not directly presented in meta.
  */
 const eventTimer = ({ parseLabel = () => {} } = {}) =>
   addHooks({

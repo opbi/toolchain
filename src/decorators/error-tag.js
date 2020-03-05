@@ -1,8 +1,10 @@
 import addHooks from './helpers/add-hooks';
 
-/*
-  a decorator used on actions when they are not chained with a logged upper-level call
-  this decorator attaches action name to the error then being thrown to a logged level
+/**
+ * A decorator used on actions when they are not chained with a logged upper-level call
+  this decorator attaches action name to the error then being thrown to a logged level.
+ *
+ * @param  {Function} options.Tag - Function to append what to tag to the error.
  */
 const errorTag = ({
   tag = (e, p, m, c, a) => ({

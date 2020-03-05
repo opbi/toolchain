@@ -4,8 +4,8 @@ import addHooks from './helpers/add-hooks';
  * A decorator to add count of errors of the action in metrics
   using the metrics client in context.
  *
- * @param  {Function} options.extraLabels - Use (e, param, meta, context) to add extra labels to error metrics.
- * @param  {Function} options.count - Use (e, p, m, c) to set counter values, e.g. In case that retries are used.
+ * @param  {function():object} options.extraLabels - Use to add extra labels to error metrics.
+ * @param  {function(): number} options.value - Use to set counter values, e.g. In case that retries are used.
  */
 const errorCounter = ({ parseLabel = () => {}, value = () => 1 } = {}) =>
   addHooks({

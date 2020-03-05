@@ -1,7 +1,10 @@
 import addHooks from './helpers/add-hooks';
 
-/*
-  a decorator to mute errors when conditions are met
+/**
+ * A decorator to mute errors when conditions are met.
+ *
+ * @param  {function(): boolean} options.condition - Condition to mute the error.
+ * @returns {object|undefined}                     If the error is muted(not thrown to upper level) it is accessible in the return value.
  */
 const errorMute = ({ condition = () => true } = {}) =>
   addHooks({
