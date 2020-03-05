@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`metrics counter.stats() to get distribution of all values of a label 1`] = `
+Object {
+  "prod": 1,
+  "test": 2,
+  "undefined": 1,
+}
+`;

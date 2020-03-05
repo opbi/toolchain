@@ -1,87 +1,77 @@
 import prometheus from 'prom-client';
 
-const { Counter, Gauge, Histogram, Summary } = prometheus;
-const typeMetricsMap = {
-  counter: Counter,
-  gauge: Gauge,
-  histogram: Histogram,
-  summary: Summary,
-};
+import metricsClient from './metrics-client';
 
-// when metrics were scraped by prometheus deamon,
-// k8s meta data such as `app` would be added
-// so it is not very necessary to add app name into metrics namespace
-export const metricsNamespace =
-  process.env.METRICS_NAMESPACE || 'custom_metrics';
+// TODO: update the original .inc(), .label() function
+// to take only the labelNames[] from the input
 
-const metrics = {};
+// TODO: further abstract out type of metrics will be used on application
+// e.g. error_counter, call_timer, etc.
+// make metrics-specs to { action, type }?
 
-const create = ({ type, name, ...specs }) => {
-  const MetricsConstructor = typeMetricsMap[type];
+// TODO: consider using fastify-metrics to get default histogram of response times
+
+// TODO: need to test the behaviour in a distributed system
+
+let metricsUnits = {};
+
+/*
+  when metrics were scraped by prometheus deamon,
+  k8s meta data such as `app` would be added
+  so it is not very necessary to add AppName into metrics namespace
+  it can be used to distinguish with canned metrics
+ */
+const metricsNamespace = process.env.METRICS_NAMESPACE || 'custom_metrics';
+
+/**
+ * Add a new metrics unit from metrics-specs.
+ *
+ * @param  {string}    options.type -  Type of the metrics, e.g. Counter.
+ * @param  {string}    options.name -  Name of the metrics, e.g. Action_error.
+ * @param  {object} options.specs - Other specific configuration for the metrics, e.g. Help, labelNames, buckets.
+ */
+const add = ({ type, name, ...specs }) => {
+  const MetricsConstructor = metricsClient[type];
+
   if (!MetricsConstructor) {
     throw Error('invalid metrics type');
   }
 
-  // convert the namecase to snakecase to align with prometheus standard
+  // metricsNamespace will be appended
   const m = new MetricsConstructor({
     ...specs,
     name: `${metricsNamespace}_${name}`,
   });
 
-  // TODO: update the original .inc(), .label() function
-  // to take only the labelNames[] from the input
-
-  metrics[name] = m;
-  return m;
+  metricsUnits[name] = m;
 };
 
-const init = list => {
+const load = list => {
   list.forEach(m => {
-    create(m);
+    add(m);
   });
 };
 
-const getErrorMetrics = functionName => {
-  const specName = `${functionName}_error`;
-  const spec = metrics[specName];
-  const { values } = spec.get();
-  return values;
+const list = () => metricsUnits;
+
+const find = ({ action, type, name }) => {
+  const unitName = name || `${action}_${type}`;
+  const unit = metricsUnits[unitName];
+  if (!unit) {
+    throw Error(`${unitName} not found in metrics-specs`);
+  }
+  return unit;
 };
 
-const getErrorNumber = functionName => {
-  const values = getErrorMetrics(functionName);
-  return values.length;
+const reset = () => {
+  prometheus.register.clear();
+  metricsUnits = {};
 };
 
-const objectPartOfAnother = (a, b) =>
-  Object.keys(a).every(keyName => a[keyName] === b[keyName]);
-
-const getErrorNumberByLabels = ({ functionName, labels }) => {
-  const values = getErrorMetrics(functionName);
-  return values.filter(value => objectPartOfAnother(labels, value.labels))
-    .length;
+export default {
+  add,
+  load,
+  list,
+  find,
+  reset,
 };
-
-const getErrorStatsByLabelName = ({ functionName, labelName }) => {
-  const values = getErrorMetrics(functionName);
-  return values.reduce((output, value) => {
-    const { labels } = value;
-    const selectedLabelValue = labels[labelName];
-    return {
-      ...output,
-      [selectedLabelValue]: output.selectedLabelValue
-        ? output.selectedLabelValue + 1
-        : 1,
-    };
-  }, {});
-};
-
-metrics.init = init;
-metrics.getErrorMetrics = getErrorMetrics;
-metrics.getErrorNumber = getErrorNumber;
-metrics.getErrorNumberByLabels = getErrorNumberByLabels;
-metrics.getErrorStatsByLabelName = getErrorStatsByLabelName;
-
-export default metrics;
-
-// TODO: consider using fastify-metrics to get default histogram of response times
