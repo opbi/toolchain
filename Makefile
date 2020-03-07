@@ -39,6 +39,12 @@ test-watch:
 test-coverage:
 	@jest --coverage
 
+docs:
+	@documentation build src/** -f md --markdown-toc false > API.md
+
+docs-watch:
+	@documentation serve --watch src/**
+
 book:
 	@rm -rf _book
 	@gitbook serve
