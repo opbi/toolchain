@@ -1,10 +1,15 @@
 import addHooks from './helpers/add-hooks';
 
 /**
+ * @typedef {import('./types')} ErrorHook
+ */
+
+/**
  * A decorator to mute errors when conditions are met.
  *
- * @param  {function(): boolean} options.condition - Condition to mute the error.
- * @returns {object|undefined}                     If the error is muted(not thrown to upper level) it is accessible in the return value.
+ * @param {object} options - Config.
+ * @param  {ErrorHook} options.condition - Condition to mute the error.
+ * @returns {Error|object|undefined} - If the error is muted(not thrown to upper level) it is accessible in the return value.
  */
 const errorMute = ({ condition = () => true } = {}) =>
   addHooks({

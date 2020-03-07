@@ -1,10 +1,15 @@
 import addHooks from './helpers/add-hooks';
 
 /**
+ * @typedef {import('./types')} StorageHook
+ */
+
+/**
  * A decorator to timing action execution time in both success/error cases
   and send metrics using the client attached in context.
  *
- * @param  {Function} options.parseLabel - Function use to include labels that are not directly presented in meta.
+ * @param {object} options - Config.
+ * @param {StorageHook} options.parseLabel - Function use to include labels that are not directly presented in meta.
  */
 const eventTimer = ({ parseLabel = () => {} } = {}) =>
   addHooks({

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`reserveName essential for any decorator in the chain to access targetFunction.name if it is not on the first place 1`] = `
+exports[`reserveNameCompose essential for any decorator in the chain to access targetFunction.name if it is not on the first place 1`] = `
 Array [
   Array [
     Object {
@@ -11,4 +11,4 @@ Array [
 ]
 `;
 
-exports[`reserveName essential for any decorator in the chain to access targetFunction.name if it is not on the first place 2`] = `Array []`;
+exports[`reserveNameCompose essential for any decorator in the chain to access targetFunction.name if it is not on the first place 2`] = `Array []`;

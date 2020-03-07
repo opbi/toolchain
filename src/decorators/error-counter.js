@@ -1,11 +1,17 @@
 import addHooks from './helpers/add-hooks';
 
 /**
+ * @typedef {import('./types')} ErrorHookConfig
+ */
+
+// TODO: make ErrorHookConfig return type configurable
+
+/**
  * A decorator to use context.metrics to count error thrown from action.
  *
- * @param {object} options -
- * @param {function():object} options.extraLabels - Use to add extra labels to error metrics.
- * @param {function(): number} options.value - Use to set counter values, e.g. In case that retries are used.
+ * @param {object} config - Decorator config.
+ * @param {ErrorHookConfig} config.parseLabel - Use to add extra labels to error metrics.
+ * @param {ErrorHookConfig} config.value - Use to set counter values, e.g. In case that retries are used.
  */
 const errorCounter = ({ parseLabel = () => {}, value = () => 1 } = {}) =>
   addHooks({

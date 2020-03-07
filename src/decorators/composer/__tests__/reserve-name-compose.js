@@ -18,7 +18,7 @@ const createMockDecorator = decoratorName => inputFunction => (...args) => {
 const decorator = createMockDecorator('decorator0');
 const decorator1 = createMockDecorator('decorator1');
 
-describe('reserveName', () => {
+describe('reserveNameCompose', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });

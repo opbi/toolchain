@@ -1,14 +1,24 @@
 /**
- * A decorator creator to maintain a standard pattern
- * so that decorator behaviour is more predictable with lgihter test.
+ * @typedef {import('../types')} BypassHook
+ * @typedef {import('../types')} StoreHook
+ * @typedef {import('../types')} BeforeHook
+ * @typedef {import('../types')} ActionHook
+ * @typedef {import('../types')} AfterHook
+ * @typedef {import('../types')} ErrorHook
+ * @typedef {import('../types')} Decorator
+ */
+
+/**
+ * An opinionated decorator creator to ensure predictable behaviour with light test.
  *
- * @param  {Function} options.bypassHook - Condition function to bypass the decorator using (param, meta, context).
- * @param  {Function} options.storeHook -  Function to hook instance across all process hooks as an internal store, external instances are recommended to be stored in context.
- * @param  {Function} options.beforeHook -         Function to be executed before the action gets called (param, meta, context, store).
- * @param  {Function} options.actionHook -         Function to augument/modify action call, e.g. Augument args or completely change to another action (param, meta, context, action, store).
- * @param  {Function} options.afterHook -          Function to be executed after the action call is finished successfully (result, param, meta, context, action, store).
- * @param  {Function} options.errorHook -          Function to be executed when error caught calling action function (error, param, meta, context, action, store).
- * @returns {Function}                      The decorated action function that returns the result returned by the original action function or the modified one or value returned from errorHook.
+ * @param {object} options - Options.
+ * @param {BypassHook} options.bypassHook - Define a condition to bypass the decorator.
+ * @param {StoreHook} options.storeHook -  Define a function to prepare values to be accessed by other hooks.
+ * @param {BeforeHook} options.beforeHook - Define a function to be executed before calling action.
+ * @param {ActionHook} options.actionHook - Define a function to return an augumented action with updated args.
+ * @param {AfterHook} options.afterHook - Define a function to be executed after the action call succeeds.
+ * @param {ErrorHook} options.errorHook - Define a function to be executed if error is thrown from action call.
+ * @returns {Decorator} The decorator with behaviour defined by the hooks and returns the expected result of the action.
  */
 const addHooks = ({
   bypassHook = () => false,
@@ -40,7 +50,7 @@ const addHooks = ({
       store,
     );
 
-    if (errorHookResult) {
+    if (errorHookResult !== undefined) {
       return errorHookResult;
     }
 

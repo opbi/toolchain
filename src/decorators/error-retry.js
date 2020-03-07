@@ -2,9 +2,14 @@ import sleep from 'lib/sleep';
 import addHooks from './helpers/add-hooks';
 
 /**
+ * @typedef {import('./types')} ErrorHookConfig
+ */
+
+/**
  * A decorator to retry action until condition met or reach maxRetries.
  *
- * @param {Function} config.condition - Condition to retry.
+ * @param {object} config - Config.
+ * @param {ErrorHookConfig} config.condition - Condition to retry.
  * @param {number} config.maxRetries - Max times of retry.
  * @param {number} config.delay - Time to wait between retry.
  * @returns {object|Array}        The data returned from the original action call.

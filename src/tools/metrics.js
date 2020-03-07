@@ -26,6 +26,7 @@ const metricsNamespace = process.env.METRICS_NAMESPACE || 'custom_metrics';
 /**
  * Add a new metrics unit from metrics-specs.
  *
+ * @param {object} options - Config.
  * @param  {string}    options.type -  Type of the metrics, e.g. Counter.
  * @param  {string}    options.name -  Name of the metrics, e.g. Action_error.
  * @param  {object} options.specs - Other specific configuration for the metrics, e.g. Help, labelNames, buckets.
@@ -67,6 +68,7 @@ const list = () => metricsUnits;
 /**
  * Find a metrics unit by action/type or by name(higher priority).
  *
+ * @param {object} options - Config.
  * @param  {string} options.action - Name of the action function.
  * @param  {string} options.type -   Type of metrics attached to the action function.
  * @param  {string} options.name -   Name of the metrics unit.

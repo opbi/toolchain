@@ -3,16 +3,16 @@ import sleep from 'lib/sleep';
 /**
  * A decorator used to poll remote endpoint with action.
  *
- * @param {object} options -
- * @param {Function} options.until - The function to set conditions to stop the polling and return the data.
- * @param {Function} options.mapping - The mapping function to transform response to the data format needed.
- * @param {number}  options.interval - Time to wait between each polling call.
- * @param {number}  options.timeout - The max time to wait for the polling before abort it.
+ * @param {object} config - Config.
+ * @param {Function} config.until - The function to set conditions to stop the polling and return the data.
+ * @param {Function} config.mapping - The mapping function to transform response to the data format needed.
+ * @param {number}  config.interval - Time to wait between each polling call.
+ * @param {number}  config.timeout - The max time to wait for the polling before abort it.
  * @returns {Function}        The decorated function returns the polling result.
  */
 const callPolling = ({
   until,
-  mapping = data => data,
+  mapping = res => res,
   interval = 1000,
   timeout = 30 * 1000,
 }) => action => async (param, meta = {}, context = {}) => {
