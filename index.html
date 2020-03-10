@@ -1,412 +1,4220 @@
-
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Purpose · ncm-preset-package</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
-        
-        
-        
-    
-    <link rel="stylesheet" href="gitbook/style.css">
-
-    
-            
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset='utf-8'>
+  <title>@opbi/toolchain  | Documentation</title>
+  <meta name='description' content='the swiss knife to lift business logic to be production ready'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' rel='stylesheet'>
+  <link href='assets/style.css' rel='stylesheet'>
+  <link href='assets/github.css' rel='stylesheet'>
+  <link href='assets/split.css' rel='stylesheet'>
+</head>
+<body class='documentation m0'>
+    <div class='flex'>
+      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>@opbi/toolchain</h3>
+          <div class='mb1'><code></code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-tomorrow.css">
-                
-            
-                
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
-
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
-
-    
-    <link rel="next" href="API.html" />
-    
-    
-
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="./">
-            
-                <a href="./#purpose">
-            
-                    
-                    Purpose
-            
+                <li><a
+                  href='#callpolling'
+                  class="">
+                  callPolling
+                  
                 </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="API.html">
-            
-                <a href="API.html">
-            
-                    
-                    API References
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
                 
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Purpose</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <p></p><h3 align="center" id="toolchain">toolchain</h3><p></p>
-<p align="center" style="margin-bottom: 2em;">&#x1F52A; the swiss knife to lift business logic to be production ready</p>
-
-<p align="center">
-  <a href="https://www.npmjs.com/package/@opbi/toolchain" target="_blank">
-    <img alt="npm" src="https://img.shields.io/npm/v/@opbi/toolchain.svg">
-  </a>
-  <a href="https://circleci.com/gh/opbi/workflows/toolchain" target="_blank">
-    <img alt="CircleCI" src="https://img.shields.io/circleci/project/github/opbi/toolchain/master.svg">
-  </a>
-  <a href="https://coveralls.io/github/opbi/toolchain?branch=master" target="_blank">
-    <img alt="Coveralls" src="https://img.shields.io/coveralls/github/opbi/toolchain/master.svg">
-  </a>
-  <a href="https://inch-ci.org/github/opbi/toolchain" target="_blank">
-    <img alt="inch-ci" src="http://inch-ci.org/github/opbi/toolchain.svg?branch=master&amp;style=shields">
-  </a>
-  <a href="https://github.com/semantic-release/semantic-release" target="_blank">
-    <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://snyk.io/test/github/opbi/toolchain" target="_blank">
-    <img alt="Known Vulnerabilities" src="https://snyk.io/test/github/opbi/toolchain/badge.svg">
-  </a>
-  <a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fopbi%2Ftoolchain?ref=badge_shield" target="_blank">
-    <img alt="License Scan" src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fopbi%2Ftoolchain.svg?type=shield">
-  </a>
-  <a href="https://david-dm.org/opbi/toolchain" target="_blank">
-    <img alt="Dependencies" src="https://img.shields.io/david/opbi/toolchain.svg">
-  </a>
-  <a href="https://david-dm.org/opbi/toolchain?type=dev" target="_blank">
-    <img alt="devDependencies" src="https://img.shields.io/david/dev/opbi/toolchain.svg">
-  </a>
-  <a href="https://scrutinizer-ci.com/g/opbi/toolchain/?branch=master" target="_blank">
-    <img alt="Scrutinizer Code Quality" src="https://img.shields.io/scrutinizer/g/opbi/toolchain.svg">
-  </a>
-</p>
-
-<hr>
-<h3 id="purpose">Purpose</h3>
-<p>There&apos;re a large amount of semi-automatable codes in most production codebases, especially around input validation/null check, error/exception handling, observability anchors(log, metrics, tracing) and various other elements to thread functions together to achieve business goals stably. All those are essential for production code, while they are slowly corrupting the readability/maintability of the codebase, incuring huge communication cost between teams due to a lack of common standards. Fortunately, without AI, it is still possible to automate some of those common programming actions with a standard.</p>
-<p>With the power of function composition in Javascript, it becomes very simple to modularize those control mechanisms in the form of well-tested reusable decorators. This makes the core business logic functions extremely conscise and easy to read/test/migrate.</p>
-<h3 id="how-to-use">How to Use</h3>
-<h4 id="install">Install</h4>
-<pre class="language-"><code class="lang-shell">yarn add @opbi/toolchain
-</code></pre>
-<h4 id="concepts--conventions">Concepts &amp; Conventions</h4>
-<p>A few concepts and conventions are introduced to make a standard for those decorators to work well with each other. We&apos;ll call a core logic function <code>action</code>, and it comes with a standard function signature of <code>(param<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>object</span><span class="token punctuation">&gt;</span></span>, meta<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>object</span><span class="token punctuation">&gt;</span></span>, context<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>object</span><span class="token punctuation">&gt;</span></span>)</code>. <code>param</code> is the arg of the input values to the core logic action, and with object destruct assigning it is a best-practice to make function calls. <code>meta</code> is the arg to be used primarily by logger, metrics clients to anchor meta-data of the function calls to provide the background where and how this call happened. <code>context</code> is the arg where you append instances of e.g. logger, metrics and other functions down to the action calling chain.</p>
-<p>The decorators come with a standard config step <code>decorator(config)(action)</code>, and are named in the format of <code>[hook point]-[client/behaviour]</code>, e.g. <code>errorCounter, eventLogger</code>.</p>
-<p>There are generally three hook points: <code>before, after, error</code>, and when a decorator is hooked into both after and error, we call it <code>event</code>.</p>
-<h4 id="compose--reuse">Compose &amp; Reuse</h4>
-<p>Say we&apos;re going to build a simple module to parse and upload a list of json files to a database. Using the decorators, we can write minimum code in <code>json-file-reader.js</code> and <code>db-batch-write.js</code> just to cover the essential logics and get them tested. Then assemble those step actions in the main module.</p>
-<pre class="language-"><code class="lang-js"><span class="token comment">//json-to-db.js</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>
-  errorCounter<span class="token punctuation">,</span>
-  errorMute<span class="token punctuation">,</span>
-  errorRetry<span class="token punctuation">,</span>
-  eventLogger<span class="token punctuation">,</span>
-  eventTimer<span class="token punctuation">,</span>
-  recompose<span class="token punctuation">,</span>
-<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;@opbi/toolchain/dist/decorators&apos;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> jsonFileReader <span class="token keyword">from</span> <span class="token string">&apos;./json-file-reader&apos;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> dbBatchWrite <span class="token keyword">from</span> <span class="token string">&apos;./db-batch-write&apos;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> <span class="token function-variable function">actionErrorLessThan</span> <span class="token operator">=</span> number <span class="token operator">=&gt;</span>
-  <span class="token punctuation">(</span>e<span class="token punctuation">,</span> p<span class="token punctuation">,</span> m<span class="token punctuation">,</span> <span class="token punctuation">{</span> metrics <span class="token punctuation">}</span><span class="token punctuation">,</span> action<span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
-    metrics <span class="token operator">&amp;&amp;</span>
-    metrics<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span> action<span class="token punctuation">,</span> type<span class="token punctuation">:</span> <span class="token string">&apos;error&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> number<span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> <span class="token function-variable function">labelBatchSize</span> <span class="token operator">=</span> <span class="token punctuation">(</span>p<span class="token punctuation">,</span> m<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> batchSize<span class="token punctuation">:</span> c<span class="token punctuation">.</span>batch<span class="token punctuation">.</span>size <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> jsonToDb <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> fileList <span class="token punctuation">}</span><span class="token punctuation">,</span> meta<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">recompose</span><span class="token punctuation">(</span>
-    <span class="token function">errorMute</span><span class="token punctuation">(</span><span class="token punctuation">{</span> condition<span class="token punctuation">:</span> <span class="token function">actionErrorLessThan</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">eventTimer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">eventLogger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">errorCounter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">)</span><span class="token punctuation">(</span>jsonFileReader<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span> fileList <span class="token punctuation">}</span><span class="token punctuation">,</span> meta<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">await</span> <span class="token function">recompose</span><span class="token punctuation">(</span>
-    <span class="token function">eventTimer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> parseLabel<span class="token punctuation">:</span> labelBatchSize <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">errorRetry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">eventLogger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">errorCounter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">errorMute</span><span class="token punctuation">(</span><span class="token punctuation">{</span> condition<span class="token punctuation">:</span> e <span class="token operator">=&gt;</span> e<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">11000</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">)</span><span class="token punctuation">(</span>dbBatchWrite<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span> data <span class="token punctuation">}</span><span class="token punctuation">,</span> meta<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> jsonToDb<span class="token punctuation">;</span>
-</code></pre>
-<p><strong>The order of the decorators in the recompose chain matters.</strong></p>
-<p>The afterHooks and errorHooks are from bottom to top, while the beforeHooks will be executed from top to bottom and meta/context would be passed from top to bottom.</p>
-<p>In the 1st recompose, because of the <code>errorMute</code> on the top position, before the number of errors counted by <code>errorCounter</code> reaches 20, any error populated from <code>jsonFileReader</code> would be muted so that jsonToDb process is not stopped.</p>
-<p>In the 2nd recompose above error with code 11000 would be muted and will not be populated to <code>errorCounter</code>, <code>eventLogger</code>, <code>errorRetry</code>, <code>eventTimer</code>. The <code>eventTimer</code> at the very top would time in the whole duration of execution even if multiple retries happened.</p>
-<p>You can see from above that, we can actually make decorator config function with names to make the behaviour highly descriptive. This makes it even possible to package and reuse function control patterns, which is a very efficient way to leverage the power of meta-programming.</p>
-<pre class="language-"><code class="lang-js"><span class="token comment">//patterns/observerable-retry.js</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>
-  errorCounter<span class="token punctuation">,</span>
-  errorRetry<span class="token punctuation">,</span>
-  eventLogger<span class="token punctuation">,</span>
-  eventTimer<span class="token punctuation">,</span>
-  recompose<span class="token punctuation">,</span>
-<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;@opbi/toolchain/dist/decorators&apos;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">recompose</span><span class="token punctuation">(</span>
-  <span class="token function">eventTimer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token function">errorRetry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token function">eventLogger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token function">errorCounter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h4 id="error-handling">Error Handling</h4>
-<p>Furthermore, this makes error handling very handy combing custom hanlders with universal handler.</p>
-<pre class="language-"><code class="lang-js"><span class="token comment">//cancel-subscription.js</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>
-  errorHandler<span class="token punctuation">,</span>
-  errorRetry<span class="token punctuation">,</span>
-  recompose<span class="token punctuation">,</span>
-<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;@opbi/toolchain/dist/decorators&apos;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> userProfileApi <span class="token keyword">from</span> <span class="token string">&apos;./api/user-profile&apos;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> subscriptionApi <span class="token keyword">from</span> <span class="token string">&apos;./api/subscription&apos;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> universalErrorPage <span class="token keyword">from</span> <span class="token string">&apos;./handler/error-page&apos;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> errorForbiddenHandler <span class="token operator">=</span> <span class="token punctuation">{</span>
-  condition<span class="token punctuation">:</span> e <span class="token operator">=&gt;</span> e<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">403</span><span class="token punctuation">,</span>
-  handler<span class="token punctuation">:</span> <span class="token punctuation">(</span>e<span class="token punctuation">,</span> p<span class="token punctuation">,</span> m<span class="token punctuation">,</span> <span class="token punctuation">{</span> res <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">403</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">redirect</span><span class="token punctuation">(</span><span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> timeoutErrorRetry <span class="token operator">=</span> <span class="token function">errorRetry</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  condition<span class="token punctuation">:</span> e <span class="token operator">=&gt;</span> e<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">&apos;TimeoutError&apos;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> cancelSubscription <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> userId <span class="token punctuation">}</span><span class="token punctuation">,</span> meta<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> <span class="token punctuation">{</span> subscriptionId <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">recompose</span><span class="token punctuation">(</span>
-    <span class="token function">errorHandler</span><span class="token punctuation">(</span><span class="token punctuation">{</span> condition<span class="token punctuation">:</span> e <span class="token operator">=&gt;</span> e<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">403</span><span class="token punctuation">,</span> handler<span class="token punctuation">:</span> universalErrorPage <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token function">errorHandler</span><span class="token punctuation">(</span>errorForbiddenHandler<span class="token punctuation">)</span><span class="token punctuation">,</span>
-    timeoutErrorRetry
-  <span class="token punctuation">)</span><span class="token punctuation">(</span>userProfileApi<span class="token punctuation">.</span>getSubscription<span class="token punctuation">)</span><span class="token punctuation">(</span>
-    <span class="token punctuation">{</span> userId <span class="token punctuation">}</span><span class="token punctuation">,</span> meta<span class="token punctuation">,</span> context
-  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">await</span> <span class="token function">recompose</span><span class="token punctuation">(</span>
-    <span class="token function">errorHandler</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      condition<span class="token punctuation">:</span> e <span class="token operator">=&gt;</span> e<span class="token punctuation">.</span>code <span class="token operator">&gt;</span> <span class="token number">500</span><span class="token punctuation">,</span>
-      handler<span class="token punctuation">:</span> <span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token punctuation">{</span> subscriptionId <span class="token punctuation">}</span><span class="token punctuation">,</span> m<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> subscriptionApi<span class="token punctuation">.</span><span class="token function">restore</span><span class="token punctuation">(</span><span class="token punctuation">{</span> subscriptionId <span class="token punctuation">}</span><span class="token punctuation">,</span> m<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    timeoutErrorRetry<span class="token punctuation">,</span>
-  <span class="token punctuation">)</span><span class="token punctuation">(</span>subscriptionApi<span class="token punctuation">.</span>cancel<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span> subscriptionId <span class="token punctuation">}</span><span class="token punctuation">,</span> meta<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> cancelSubscription<span class="token punctuation">;</span>
-</code></pre>
-<h4 id="ecosystem">Ecosystem</h4>
-<p>Currently available decorators are as following:</p>
-<ul>
-<li><a href="https://github.com/opbi/toolchain/blob/master/src/decorators/call-polling.js" target="_blank">callPolling</a></li>
-<li><a href="https://github.com/opbi/toolchain/blob/master/src/decorators/error-counter.js" target="_blank">errorCounter</a></li>
-<li><a href="https://github.com/opbi/toolchain/blob/master/src/decorators/error-handler.js" target="_blank">errorHandler</a></li>
-<li><a href="https://github.com/opbi/toolchain/blob/master/src/decorators/error-mute.js" target="_blank">errorMute</a></li>
-<li><a href="https://github.com/opbi/toolchain/blob/master/src/decorators/error-retry.js" target="_blank">errorRetry</a></li>
-<li><a href="https://github.com/opbi/toolchain/blob/master/src/decorators/error-tag.js" target="_blank">errorTag</a></li>
-<li><a href="https://github.com/opbi/toolchain/blob/master/src/decorators/event-logger.js" target="_blank">eventLogger</a></li>
-<li><a href="https://github.com/opbi/toolchain/blob/master/src/decorators/event-timer.js" target="_blank">eventTimer</a></li>
-</ul>
-<h4 id="extension">Extension</h4>
-<p>You can also create more decorators for yourself or the ecosystem with the reliable standard decorator creator(coming soon). It helps you to maintain a standard across your decorators to ensure compatibility and consistent develop experience.</p>
-<h3 id="license">License</h3>
-<p><a href="License">MIT</a></p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
+                </li>
+              
+                
+                <li><a
+                  href='#errorcounter'
+                  class="">
+                  errorCounter
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#errorcounter'
+                  class="">
+                  errorCounter
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#errorhandler'
+                  class="">
+                  errorHandler
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#errorhandler'
+                  class="">
+                  errorHandler
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#errormute'
+                  class="">
+                  errorMute
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#errormute'
+                  class="">
+                  errorMute
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#errorretry'
+                  class="">
+                  errorRetry
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#errorretry'
+                  class="">
+                  errorRetry
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#errortag'
+                  class="">
+                  errorTag
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#errortag'
+                  class="">
+                  errorTag
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventlogger'
+                  class="">
+                  eventLogger
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventtimer'
+                  class="">
+                  eventTimer
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventtimer'
+                  class="">
+                  eventTimer
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#addhooks'
+                  class="">
+                  addHooks
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#addhooks'
+                  class="">
+                  addHooks
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#beforehook'
+                  class="">
+                  BeforeHook
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#actionhook'
+                  class="">
+                  ActionHook
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#afterhook'
+                  class="">
+                  AfterHook
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#afterhookmethod'
+                  class="">
+                  AfterHookMethod
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#errorhook'
+                  class="">
+                  ErrorHook
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#errorhookmethod'
+                  class="">
+                  ErrorHookMethod
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#decorator'
+                  class="">
+                  Decorator
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#index'
+                  class="">
+                  index
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#notfunction'
+                  class="">
+                  NotFunction
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#param'
+                  class="">
+                  Param
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#meta'
+                  class="">
+                  Meta
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#context'
+                  class="">
+                  Context
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#'
+                  class="">
+                  
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#store'
+                  class="">
+                  Store
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#bypasshook'
+                  class="">
+                  BypassHook
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#bypasshookmethod'
+                  class="">
+                  BypassHookMethod
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#storehook'
+                  class="">
+                  StoreHook
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#storagehookmethod'
+                  class="">
+                  StorageHookMethod
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#stats'
+                  class="">
+                  stats
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#add'
+                  class="">
+                  add
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#load'
+                  class="">
+                  load
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#list'
+                  class="">
+                  list
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#find'
+                  class="">
+                  find
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#reset'
+                  class="">
+                  reset
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#objectcontains'
+                  class="">
+                  objectContains
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#objectonlykeys'
+                  class="">
+                  objectOnlyKeys
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
         </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
+      </div>
+      <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='callpolling'>
+      callPolling
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A decorator used to poll remote endpoint with action.</p>
+
+    <div class='pre p1 fill-light mt0'>callPolling</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    Config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.until</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
+  </td>
+  <td class='break-word'><span>The function to set conditions to stop the polling and return the data.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.mapping</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
+  
+    (default <code>res=&gt;res</code>)
+  </td>
+  <td class='break-word'><span>The mapping function to transform response to the data format needed.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.interval</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
+  
+    (default <code>1000</code>)
+  </td>
+  <td class='break-word'><span>Time to wait between each polling call.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.timeout</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
+  
+    (default <code>30*1000</code>)
+  </td>
+  <td class='break-word'><span>The max time to wait for the polling before abort it.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
         </div>
+      
     </div>
-</div>
+  
 
-                        </div>
-                    </div>
-                
-            </div>
+  
 
-            
-                
-                
-                <a href="API.html" class="navigation navigation-next navigation-unique" aria-label="Next page: API References">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>:
+        The decorated function returns the polling result.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
         
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorcounter'>
+      errorCounter
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A decorator to use context.metrics to count error thrown from action.</p>
+
+    <div class='pre p1 fill-light mt0'>errorCounter</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            = <code>{}</code>)</code>
+	    Decorator config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.parseLabel</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>?</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span>Use to add extra labels to error metrics.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.value</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>?</code>
+  
+    (default <code>()=&gt;1</code>)
+  </td>
+  <td class='break-word'><span>Use to set counter values, e.g. In case that retries are used.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Purpose","level":"1.1","depth":1,"next":{"title":"API References","level":"1.2","depth":1,"path":"API.md","ref":"API.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/opbi/ncm-preset-package/tree/master"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"shell":"bash"}},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ncm-preset-package","gitbook":"3.2.2"},"file":{"path":"README.md","mtime":"2020-03-05T23:43:16.102Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-05T23:44:47.521Z"},"basePath":".","book":{"language":""}});
-        });
-    </script>
-</div>
+  
 
-        
-    <script src="gitbook/gitbook.js"></script>
-    <script src="gitbook/theme.js"></script>
-    
-        
-        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  
 
-    </body>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorcounter'>
+      errorCounter
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>errorCounter</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.parseLabel</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.value</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;1</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorhandler'>
+      errorHandler
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>errorHandler</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.condition</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;false</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.handler</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorhandler'>
+      errorHandler
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A decorator to add conditional side-effect before error being thrown
+e.g. It can be used together with error-metrics to create conditional error-metrics
+e.g. It can also be used to handle specific error by throw error in the handler.</p>
+
+    <div class='pre p1 fill-light mt0'>errorHandler</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            = <code>{}</code>)</code>
+	    Config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.condition</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
+  
+    (default <code>()=&gt;false</code>)
+  </td>
+  <td class='break-word'><span>Condition to call the handler.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.handler</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;void>?</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span>What to do when the condition met.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errormute'>
+      errorMute
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>errorMute</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.condition</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;true</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errormute'>
+      errorMute
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A decorator to mute errors when conditions are met.</p>
+
+    <div class='pre p1 fill-light mt0'>errorMute</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            = <code>{}</code>)</code>
+	    Config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.condition</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
+  
+    (default <code>()=&gt;true</code>)
+  </td>
+  <td class='break-word'><span>Condition to mute the error.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a>)</code>:
+        If the error is muted(not thrown to upper level) it is accessible in the return value.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorretry'>
+      errorRetry
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A decorator to retry action until condition met or reach maxRetries.</p>
+
+    <div class='pre p1 fill-light mt0'>errorRetry</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            = <code>{}</code>)</code>
+	    Config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.condition</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
+  </td>
+  <td class='break-word'><span>Condition to retry.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.maxRetries</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+  </td>
+  <td class='break-word'><span>Max times of retry.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.delay</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+  </td>
+  <td class='break-word'><span>Time to wait between retry.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>:
+        The data returned from the original action call.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorretry'>
+      errorRetry
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>errorRetry</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>config</span> <code class='quiet'>(any
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errortag'>
+      errorTag
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A decorator used on actions when they are not chained with a logged upper-level call
+this decorator attaches action name to the error then being thrown to a logged level.</p>
+
+    <div class='pre p1 fill-light mt0'>errorTag</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            = <code>{}</code>)</code>
+	    Config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.tag</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>?</code>
+  
+    (default <code>(e,p,m,c,a)=&gt;{action:a.name,message:e.message,constructor:e.constructor.name,stack:e.stack.split(&#39;\n&#39;).map(s=&gt;s.trim())}</code>)
+  </td>
+  <td class='break-word'><span>Function to append what to tag to the error.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errortag'>
+      errorTag
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>errorTag</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.tag</span> <code class='quiet'>any</code>
+  
+    (default <code>(e,p,m,c,a)=&gt;{action:a.name,message:e.message,constructor:e.constructor.name,stack:e.stack.split(&#39;\n&#39;).map(s=&gt;s.trim())}</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventlogger'>
+      eventLogger
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A decorator to attach standard log behaviour to action
+bypass: when logger instance is not available in context
+augment: parse action name and added to action meta to be chained in sub-actions
+after: log success event, with options to include param and result
+error: log error event, with option to parse error.</p>
+
+    <div class='pre p1 fill-light mt0'>eventLogger</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            = <code>{}</code>)</code>
+	    Config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.logParam</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?</code>
+  </td>
+  <td class='break-word'><span>If include param in the log.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.logResult</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?</code>
+  </td>
+  <td class='break-word'><span>If log the result.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.errorParser</span> <code class='quiet'>any</code>
+  
+    (default <code>e=&gt;e</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventtimer'>
+      eventTimer
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A decorator to timing action execution time in both success/error cases
+and send metrics using the client attached in context.</p>
+
+    <div class='pre p1 fill-light mt0'>eventTimer</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            = <code>{}</code>)</code>
+	    Config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.parseLabel</span> <code class='quiet'><a href="#storagehookmethod">StorageHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>?</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span>Function use to include labels that are not directly presented in meta.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventtimer'>
+      eventTimer
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>eventTimer</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.parseLabel</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='addhooks'>
+      addHooks
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>An opinionated decorator creator to ensure predictable behaviour with light test.</p>
+
+    <div class='pre p1 fill-light mt0'>addHooks</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            = <code>{}</code>)</code>
+	    Options.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.bypassHook</span> <code class='quiet'><a href="#bypasshook">BypassHook</a>?</code>
+  
+    (default <code>()=&gt;false</code>)
+  </td>
+  <td class='break-word'><span>Define a condition to bypass the decorator.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.storeHook</span> <code class='quiet'><a href="#storehook">StoreHook</a>?</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span> Define a function to prepare values to be accessed by other hooks.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.beforeHook</span> <code class='quiet'><a href="#beforehook">BeforeHook</a>?</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span>Define a function to be executed before calling action.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.actionHook</span> <code class='quiet'><a href="#actionhook">ActionHook</a>?</code>
+  
+    (default <code>(param,meta,context,action)=&gt;action(param,meta,context)</code>)
+  </td>
+  <td class='break-word'><span>Define a function to return an augumented action with updated args.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.afterHook</span> <code class='quiet'><a href="#afterhook">AfterHook</a>?</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span>Define a function to be executed after the action call succeeds.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.errorHook</span> <code class='quiet'><a href="#errorhook">ErrorHook</a>?</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span>Define a function to be executed if error is thrown from action call.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#decorator">Decorator</a></code>:
+        The decorator with behaviour defined by the hooks and returns the expected result of the action.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='addhooks'>
+      addHooks
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>addHooks</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.bypassHook</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;false</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.storeHook</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.beforeHook</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.actionHook</span> <code class='quiet'>any</code>
+  
+    (default <code>(param,meta,context,action)=&gt;action(param,meta,context)</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.afterHook</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.errorHook</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='beforehook'>
+      BeforeHook
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>BeforeHook definition.</p>
+
+    <div class='pre p1 fill-light mt0'>BeforeHook(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: Action?, store: <a href="#store">Store</a>?)</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>action</span> <code class='quiet'>(Action?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>store</span> <code class='quiet'>(<a href="#store">Store</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>BeforeHook can be used to <span class="hljs-keyword">do</span> param validation</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='actionhook'>
+      ActionHook
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>ActionHook definition.</p>
+
+    <div class='pre p1 fill-light mt0'>ActionHook(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: Action?, store: <a href="#store">Store</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>action</span> <code class='quiet'>(Action?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>store</span> <code class='quiet'>(<a href="#store">Store</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>:
+        The augumented action with updated args. It shouldn't affect the expected result.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='afterhook'>
+      AfterHook
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>AfterHook definition.</p>
+
+    <div class='pre p1 fill-light mt0'>AfterHook(result: any?, param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: Action?, store: <a href="#store">Store</a>?)</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>result</span> <code class='quiet'>(any?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>action</span> <code class='quiet'>(Action?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>store</span> <code class='quiet'>(<a href="#store">Store</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='afterhookmethod'>
+      AfterHookMethod
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>AfterHookMethod.</p>
+
+    <div class='pre p1 fill-light mt0'>AfterHookMethod(result: any?, param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: Action?)</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>result</span> <code class='quiet'>(any?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>action</span> <code class='quiet'>(Action?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorhook'>
+      ErrorHook
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>ErrorHook definition.</p>
+
+    <div class='pre p1 fill-light mt0'>ErrorHook(error: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)?, param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: Action?, store: <a href="#store">Store</a>?): (void | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a> | any)</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>error</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>action</span> <code class='quiet'>(Action?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>store</span> <code class='quiet'>(<a href="#store">Store</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(void | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a> | any)</code>:
+        If anything other than void/undefined is returned, it would be returned as the reuslt of the decorated action.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorhookmethod'>
+      ErrorHookMethod
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>ErrorHookMethod.</p>
+
+    <div class='pre p1 fill-light mt0'>ErrorHookMethod(error: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)?, param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: Action?): T</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>error</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>action</span> <code class='quiet'>(Action?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>T</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='decorator'>
+      Decorator
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Decorator definition.</p>
+
+    <div class='pre p1 fill-light mt0'>Decorator(action: Action): Action</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>action</span> <code class='quiet'>(Action)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Action</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='index'>
+      index
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>empty function export as workaround for typescript
+to parse the file as a module</p>
+
+    <div class='pre p1 fill-light mt0'>index()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='notfunction'>
+      NotFunction
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>NotFunction</div>
+  
+    <p>
+      Type:
+      (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a> | null | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a> | bigint | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>)
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='param'>
+      Param
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Param - the arg houses the parameters for the action function logic.
+It is the first arg in the standard action function signature,
+and passed to hook functions through standard hook definitions.</p>
+
+    <div class='pre p1 fill-light mt0'>Param</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, <a href="#notfunction">NotFunction</a>>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`eventLogger`</span> decorator has option to use afterHook to log Param object</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='meta'>
+      Meta
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Meta - the arg houses the metadata attached to the action function to record where and how it is called.
+It is the second arg in the standard of action function signature,
+and passed to hook functions through standard hook definitions.</p>
+<p>Meta vs Context: meta contains strictly what would be put into the log/metrics.</p>
+
+    <div class='pre p1 fill-light mt0'>Meta</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, <a href="#notfunction">NotFunction</a>>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`eventLogger`</span> decorator has storeHook parsing the name <span class="hljs-keyword">of</span> the action,
+  pass it into actionHook to be included <span class="hljs-keyword">in</span> the Meta to call action,
+  and use afterbook to log all information <span class="hljs-keyword">in</span> the Meta object</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='context'>
+      Context
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Context - the rag houses functional instances attached to the action function to make calls outside the function.
+It is the thrid arg in the standard action function signature,
+and passed to hook functions through standard hook definitions.</p>
+
+    <div class='pre p1 fill-light mt0'>Context</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>logger, metrics, database client can be attached to the context and being used by errorHooks,
+  so that errorHooks are not bundled <span class="hljs-keyword">with</span> the clients</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id=''>
+      
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Action - the decorated action function itself.
+It is accessible in the hook definition to make decorators
+to call the action function recursively or modify its args/behaviour.</p>
+
+    <div class='pre p1 fill-light mt0'></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`errorRetry`</span> decorator calls Action <span class="hljs-keyword">with</span> updated Meta under valid conditions
+  to mute the first error thrown <span class="hljs-keyword">from</span> the action <span class="hljs-function"><span class="hljs-keyword">function</span>
+
+  `<span class="hljs-title">eventLogger</span>` <span class="hljs-title">decorator</span> <span class="hljs-title">parse</span> <span class="hljs-title">Action</span>.<span class="hljs-title">name</span> <span class="hljs-title">in</span> <span class="hljs-title">storeHook</span> <span class="hljs-title">and</span> <span class="hljs-title">automatically</span> <span class="hljs-title">attachs</span> <span class="hljs-title">it</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">log</span></span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='store'>
+      Store
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Store - the arg stores temprorary variables to be used by different hooks.
+It is produced in the storeHook and then passed as the last arg of beforeHook, actionHook, afterHook, errorHook.</p>
+
+    <div class='pre p1 fill-light mt0'>Store</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, any>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`eventLogger`</span> decorator parse Action.name to <span class="hljs-string">`event`</span> and put it <span class="hljs-keyword">in</span> the store,
+  which is later accessed <span class="hljs-keyword">in</span> afterHook to be logged when action call succeeds</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='bypasshook'>
+      BypassHook
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>BypassHook definition.</p>
+
+    <div class='pre p1 fill-light mt0'>BypassHook(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        If the condition is met to bypass the decorator.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`eventLogger`</span> will bypass <span class="hljs-keyword">if</span> logger instance is not presented <span class="hljs-keyword">in</span> the context</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='bypasshookmethod'>
+      BypassHookMethod
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>BypassHookMethod.</p>
+
+    <div class='pre p1 fill-light mt0'>BypassHookMethod(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?): any</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='storehook'>
+      StoreHook
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>StoreHook definition.</p>
+
+    <div class='pre p1 fill-light mt0'>StoreHook(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: Action?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>action</span> <code class='quiet'>(Action?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        The values/instances put in temporary store to be accessed by other hooks.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='storagehookmethod'>
+      StorageHookMethod
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>StorageHookMethod.</p>
+
+    <div class='pre p1 fill-light mt0'>StorageHookMethod(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: Action?): T</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>action</span> <code class='quiet'>(Action?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>T</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='stats'>
+      stats
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Used when the exhaustive values of a label is not clear
+e.g. When it is stats for errorCodes.</p>
+
+    <div class='pre p1 fill-light mt0'>stats(labelName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>labelName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The name of the label.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        {
+[labelValue]
+: count}.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='add'>
+      add
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Add a new metrics unit from metrics-specs.</p>
+
+    <div class='pre p1 fill-light mt0'>add</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    Config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.type</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span> Type of the metrics, e.g. Counter.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.name</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span> Name of the metrics, e.g. Action_error.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.specs</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
+  </td>
+  <td class='break-word'><span>Other specific configuration for the metrics, e.g. Help, labelNames, buckets.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='load'>
+      load
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Load a list of metrics specs to metricsUnits.</p>
+
+    <div class='pre p1 fill-light mt0'>load</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>list</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    List of metrics specs.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='list'>
+      list
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>List the metrics unit instances stored in metricsUnits.</p>
+
+    <div class='pre p1 fill-light mt0'>list</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        &#x3C;{
+[metrics name]
+: metrics unit instance}>.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='find'>
+      find
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Find a metrics unit by action/type or by name(higher priority).</p>
+
+    <div class='pre p1 fill-light mt0'>find</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    Config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.action</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span>Name of the action function.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.type</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span>  Type of metrics attached to the action function.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.name</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span>  Name of the metrics unit.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        The metrics unit instance.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='reset'>
+      reset
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Clear instances stored in metricsUnits and prometheus.register.</p>
+
+    <div class='pre p1 fill-light mt0'>reset</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='objectcontains'>
+      objectContains
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Check if object a contains another object b by shallow equal.</p>
+
+    <div class='pre p1 fill-light mt0'>objectContains</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>a</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The bigger object.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>b</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The smaller object.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        If contains.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='objectonlykeys'>
+      objectOnlyKeys
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Trim object keys to the target array.</p>
+
+    <div class='pre p1 fill-light mt0'>objectOnlyKeys</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	     The object to be trimmed.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>target</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    The array of target keys.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        The new object with trimmed keys.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/split.js'></script>
+  <script src='assets/site.js'></script>
+</body>
 </html>
-
