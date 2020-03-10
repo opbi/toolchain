@@ -12,9 +12,9 @@ import addHooks from './helpers/add-hooks';
   e.g. It can be used together with error-metrics to create conditional error-metrics
   e.g. It can also be used to handle specific error by throw error in the handler.
  *
- * @param {object} config - Config.
- * @param {ErrorHookMethod<boolean>} [config.condition] - Condition to call the handler.
- * @param {ErrorHookMethod<void>} [config.handler] - What to do when the condition met.
+ * @param {object} options - Config.
+ * @param {ErrorHookMethod<boolean>} [options.condition] - Condition to call the handler.
+ * @param {ErrorHookMethod<void>} [options.handler] - What to do when the condition met.
  */
 const errorHandler = ({ condition = () => false, handler = () => {} } = {}) =>
   addHooks({
