@@ -595,107 +595,6 @@
   </div>
   
 
-  <p>A decorator to use context.metrics to count error thrown from action.</p>
-
-    <div class='pre p1 fill-light mt0'>errorCounter</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
-            = <code>{}</code>)</code>
-	    Decorator config.
-
-          </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>config.parseLabel</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>?</code>
-  
-    (default <code>()=&gt;{}</code>)
-  </td>
-  <td class='break-word'><span>Use to add extra labels to error metrics.
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>config.value</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>?</code>
-  
-    (default <code>()=&gt;1</code>)
-  </td>
-  <td class='break-word'><span>Use to set counter values, e.g. In case that retries are used.
-</span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='errorcounter'>
-      errorCounter
-    </h3>
-    
-    
-  </div>
-  
-
   
     <div class='pre p1 fill-light mt0'>errorCounter</div>
   
@@ -748,6 +647,107 @@
     (default <code>()=&gt;1</code>)
   </td>
   <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorcounter'>
+      errorCounter
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A decorator to use context.metrics to count error thrown from action.</p>
+
+    <div class='pre p1 fill-light mt0'>errorCounter</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            = <code>{}</code>)</code>
+	    Decorator config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.parseLabel</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>?</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span>Use to add extra labels to error metrics.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.value</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>?</code>
+  
+    (default <code>()=&gt;1</code>)
+  </td>
+  <td class='break-word'><span>Use to set counter values, e.g. In case that retries are used.
+</span></td>
 </tr>
 
 
@@ -911,7 +911,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
             = <code>{}</code>)</code>
 	    Config.
 
@@ -931,7 +931,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>config.condition</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
+  <td class='break-word'><span class='code bold'>options.condition</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
   
     (default <code>()=&gt;false</code>)
   </td>
@@ -942,7 +942,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>config.handler</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;void>?</code>
+  <td class='break-word'><span class='code bold'>options.handler</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;void>?</code>
   
     (default <code>()=&gt;{}</code>)
   </td>
@@ -1178,6 +1178,67 @@ e.g. It can also be used to handle specific error by throw error in the handler.
   </div>
   
 
+  
+    <div class='pre p1 fill-light mt0'>errorRetry</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(any
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorretry'>
+      errorRetry
+    </h3>
+    
+    
+  </div>
+  
+
   <p>A decorator to retry action until condition met or reach maxRetries.</p>
 
     <div class='pre p1 fill-light mt0'>errorRetry</div>
@@ -1197,7 +1258,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
             = <code>{}</code>)</code>
 	    Config.
 
@@ -1217,7 +1278,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>config.condition</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
+  <td class='break-word'><span class='code bold'>options.condition</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
   </td>
   <td class='break-word'><span>Condition to retry.
 </span></td>
@@ -1226,7 +1287,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>config.maxRetries</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+  <td class='break-word'><span class='code bold'>options.maxRetries</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
   </td>
   <td class='break-word'><span>Max times of retry.
 </span></td>
@@ -1235,7 +1296,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>config.delay</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+  <td class='break-word'><span class='code bold'>options.delay</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
   </td>
   <td class='break-word'><span>Time to wait between retry.
 </span></td>
@@ -1284,8 +1345,8 @@ e.g. It can also be used to handle specific error by throw error in the handler.
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='errorretry'>
-      errorRetry
+    <h3 class='fl m0' id='errortag'>
+      errorTag
     </h3>
     
     
@@ -1293,7 +1354,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
   
 
   
-    <div class='pre p1 fill-light mt0'>errorRetry</div>
+    <div class='pre p1 fill-light mt0'>errorTag</div>
   
   
 
@@ -1310,10 +1371,36 @@ e.g. It can also be used to handle specific error by throw error in the handler.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>config</span> <code class='quiet'>(any
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
             = <code>{}</code>)</code>
 	    
           </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.tag</span> <code class='quiet'>any</code>
+  
+    (default <code>(e,p,m,c,a)=&gt;{action:a.name,message:e.message,constructor:e.constructor.name,stack:e.stack.split(&#39;\n&#39;).map(s=&gt;s.trim())}</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
           
         </div>
       
@@ -1399,93 +1486,6 @@ this decorator attaches action name to the error then being thrown to a logged l
   </td>
   <td class='break-word'><span>Function to append what to tag to the error.
 </span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='errortag'>
-      errorTag
-    </h3>
-    
-    
-  </div>
-  
-
-  
-    <div class='pre p1 fill-light mt0'>errorTag</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
-            = <code>{}</code>)</code>
-	    
-          </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>$0.tag</span> <code class='quiet'>any</code>
-  
-    (default <code>(e,p,m,c,a)=&gt;{action:a.name,message:e.message,constructor:e.constructor.name,stack:e.stack.split(&#39;\n&#39;).map(s=&gt;s.trim())}</code>)
-  </td>
-  <td class='break-word'><span></span></td>
 </tr>
 
 
