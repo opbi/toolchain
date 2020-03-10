@@ -12,14 +12,11 @@ extends:
   - airbnb-base
   - standard-jsdoc
   - plugin:jest/recommended
-  - plugin:flowtype/recommended
   - prettier
-  - prettier/flowtype
 plugins:
   - import
   - jest
   - jsdoc
-  - flowtype
   - prettier
 rules:
   valid-jsdoc: 'off'
@@ -45,5 +42,3 @@ settings:
       moduleDirectory:
         - ./src
         - ./node_modules
-  flowtype:
-    onlyFilesWithFlowAnnotation: true
