@@ -1,9 +1,21 @@
+// @ts-check
+
+/**
+ *  empty function export as workaround for typescript
+ *  to parse the file as a module
+ */
+export default function() {}
+
+/**
+ * @typedef {undefined | null | boolean | bigint | number | string | object | Array | Date } NotFunction
+ */
+
 /**
  * Param - the arg houses the parameters for the action function logic.
  * It is the first arg in the standard action function signature,
  * and passed to hook functions through standard hook definitions.
  *
- * @typedef {object<string, number|boolean|Array|object>} Param
+ * @typedef {Object.<string, NotFunction>} Param
  *
  * @example
  *   `eventLogger` decorator has option to use afterHook to log Param object
@@ -16,7 +28,7 @@
  *
  * Meta vs Context: meta contains strictly what would be put into the log/metrics.
  *
- * @typedef {object<string, number|boolean|Array|object>} Meta
+ * @typedef {Object<string, NotFunction>} Meta
  *
  * @example
  *   `eventLogger` decorator has storeHook parsing the name of the action,
@@ -29,7 +41,7 @@
  * It is the thrid arg in the standard action function signature,
  * and passed to hook functions through standard hook definitions.
  *
- * @typedef {object<string, Array|object|Function>} Context
+ * @typedef {Object.<string, Array|object|Function>} Context
  *
  * @example
  *   logger, metrics, database client can be attached to the context and being used by errorHooks,
@@ -37,13 +49,11 @@
  */
 
 /**
- * Action - the arg used to refer the decorated action function itself.
- * It is only accessible in the hook definition to make decorators
+ * Action - the decorated action function itself.
+ * It is accessible in the hook definition to make decorators
  * to call the action function recursively or modify its args/behaviour.
  *
- * It is not accessible in the decorator config methods in current packaged decorators.
- *
- *@typedef {Function} Action
+ * @typedef {(p: Param?, m: Meta?, c: Context?) => any} Action
  *
  * @example
  *   `errorRetry` decorator calls Action with updated Meta under valid conditions
@@ -56,7 +66,7 @@
  * Store - the arg stores temprorary variables to be used by different hooks.
  * It is produced in the storeHook and then passed as the last arg of beforeHook, actionHook, afterHook, errorHook.
  *
- *@typedef {object<string, any>} Store
+ *@typedef {Object.<string, any>} Store
  *
  * @example
  *   `eventLogger` decorator parse Action.name to `event` and put it in the store,
@@ -77,9 +87,9 @@
  */
 
 /**
- * BypassHookConfig.
+ * BypassHookMethod.
  *
- * @typedef {Function} BypassHookConfig
+ * @typedef {Function} BypassHookMethod
  * @param {Param} [param]
  * @param {Meta} [meta]
  * @param {Context} [context]
@@ -95,6 +105,18 @@
  * @param {Context} [context]
  * @param {Action} [action]
  * @returns {object} - The values/instances put in temporary store to be accessed by other hooks.
+ */
+
+/**
+ * StorageHookMethod.
+ *
+ * @template T
+ * @typedef {Function} StorageHookMethod<T>
+ * @param {Param} [param]
+ * @param {Meta} [meta]
+ * @param {Context} [context]
+ * @param {Action} [action]
+ * @returns {T}
  */
 
 /**
@@ -136,13 +158,14 @@
  */
 
 /**
- * AfterHookConfig.
+ * AfterHookMethod.
  *
- * @typedef {Function} AfterHookConfig
+ * @typedef {Function} AfterHookMethod
  * @param {any} [result]
  * @param {Param} [param]
  * @param {Meta} [meta]
  * @param {Context} [context]
+ * @param {Action} [action]
  */
 
 /**
@@ -159,24 +182,16 @@
  */
 
 /**
- * ErrorHookConfig.
+ * ErrorHookMethod.
  *
- * @typedef {Function} ErrorHookConfig
+ * @template T
+ * @typedef {Function} ErrorHookMethod<T>
  * @param {Error|object} [error]
  * @param {Param} [param]
  * @param {Meta} [meta]
  * @param {Context} [context]
- * @returns {any}
- */
-
-/**
- * Action definition.
- *
- * @typedef {Function} Action
- * @param {Param} [param]
- * @param {Meta} [meta]
- * @param {Context} [context]
- * @returns {any}
+ * @param {Action} [action]
+ * @returns {T}
  */
 
 /**

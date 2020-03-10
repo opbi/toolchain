@@ -1,23 +1,25 @@
+// @ts-check
+
 /**
- * @typedef {import('../types')} BypassHook
- * @typedef {import('../types')} StoreHook
- * @typedef {import('../types')} BeforeHook
- * @typedef {import('../types')} ActionHook
- * @typedef {import('../types')} AfterHook
- * @typedef {import('../types')} ErrorHook
- * @typedef {import('../types')} Decorator
+ * @typedef {import('../types').BypassHook} BypassHook
+ * @typedef {import('../types').StoreHook} StoreHook
+ * @typedef {import('../types').BeforeHook} BeforeHook
+ * @typedef {import('../types').ActionHook} ActionHook
+ * @typedef {import('../types').AfterHook} AfterHook
+ * @typedef {import('../types').ErrorHook} ErrorHook
+ * @typedef {import('../types').Decorator} Decorator
  */
 
 /**
  * An opinionated decorator creator to ensure predictable behaviour with light test.
  *
  * @param {object} options - Options.
- * @param {BypassHook} options.bypassHook - Define a condition to bypass the decorator.
- * @param {StoreHook} options.storeHook -  Define a function to prepare values to be accessed by other hooks.
- * @param {BeforeHook} options.beforeHook - Define a function to be executed before calling action.
- * @param {ActionHook} options.actionHook - Define a function to return an augumented action with updated args.
- * @param {AfterHook} options.afterHook - Define a function to be executed after the action call succeeds.
- * @param {ErrorHook} options.errorHook - Define a function to be executed if error is thrown from action call.
+ * @param {BypassHook} [options.bypassHook] - Define a condition to bypass the decorator.
+ * @param {StoreHook} [options.storeHook] -  Define a function to prepare values to be accessed by other hooks.
+ * @param {BeforeHook} [options.beforeHook] - Define a function to be executed before calling action.
+ * @param {ActionHook} [options.actionHook] - Define a function to return an augumented action with updated args.
+ * @param {AfterHook} [options.afterHook] - Define a function to be executed after the action call succeeds.
+ * @param {ErrorHook} [options.errorHook] - Define a function to be executed if error is thrown from action call.
  * @returns {Decorator} The decorator with behaviour defined by the hooks and returns the expected result of the action.
  */
 const addHooks = ({

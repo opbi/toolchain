@@ -1,7 +1,10 @@
+// @ts-check
+
 import addHooks from './helpers/add-hooks';
 
 /**
- * @typedef {import('./types')} ErrorHook
+ * @template T
+ * @typedef {import('./types').ErrorHookMethod<T>} ErrorHookMethod
  */
 
 /**
@@ -9,7 +12,7 @@ import addHooks from './helpers/add-hooks';
   this decorator attaches action name to the error then being thrown to a logged level.
  *
  * @param {object} options - Config.
- * @param {ErrorHook} options.tag - Function to append what to tag to the error.
+ * @param {ErrorHookMethod<object>} [options.tag] - Function to append what to tag to the error.
  */
 const errorTag = ({
   tag = (e, p, m, c, a) => ({

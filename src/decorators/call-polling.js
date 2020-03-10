@@ -1,3 +1,5 @@
+// @ts-check
+
 import sleep from 'lib/sleep';
 
 /**

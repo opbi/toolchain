@@ -1,3 +1,5 @@
+// @ts-check
+
 import addHooks from './helpers/add-hooks';
 
 /**
@@ -8,9 +10,9 @@ import addHooks from './helpers/add-hooks';
   error: log error event, with option to parse error.
  *
  * @param {object} options - Config.
- * @param {boolean} options.logParam - If include param in the log.
- * @param {boolean} options.logResult - If log the result.
- * @param {Function} options.errorParser - Parse the error to keep only useful information from the error in the log.
+ * @param {boolean} [options.logParam] - If include param in the log.
+ * @param {boolean} [options.logResult] - If log the result.
+ * @param {(error: Error|object) => object} [options.errorParser] - Parse the error to keep only useful information from the error in the log.
  */
 const eventLogger = ({ logParam, logResult, errorParser = e => e } = {}) =>
   addHooks({

@@ -1,7 +1,10 @@
+// @ts-check
+
 import addHooks from './helpers/add-hooks';
 
 /**
- * @typedef {import('./types')} StorageHook
+ * @template T
+ * @typedef {import('./types').StorageHookMethod<T>} StorageHookMethod
  */
 
 /**
@@ -9,14 +12,14 @@ import addHooks from './helpers/add-hooks';
   and send metrics using the client attached in context.
  *
  * @param {object} options - Config.
- * @param {StorageHook} options.parseLabel - Function use to include labels that are not directly presented in meta.
+ * @param {StorageHookMethod<object>} [options.parseLabel] - Function use to include labels that are not directly presented in meta.
  */
 const eventTimer = ({ parseLabel = () => {} } = {}) =>
   addHooks({
     bypassHook: (p, m, { metrics }) => !metrics,
-    storageHook: (p, m, c, action) => {
+    storeHook: (p, m, c, a) => {
       const { metrics } = c;
-      const timer = metrics.find({ action, type: 'timer' });
+      const timer = metrics.find({ action: a.name, type: 'timer' });
       const stopTimer = timer.start({ ...m, ...parseLabel(p, m, c) });
       return { stopTimer };
     },

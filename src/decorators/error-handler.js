@@ -1,8 +1,10 @@
+// @ts-check
+
 import addHooks from './helpers/add-hooks';
 
 /**
- * @typedef {import('./types')} ErrorHookConfig
- * @typedef {import('./types')} ErrorHook
+ * @template T
+ * @typedef {import('./types').ErrorHookMethod<T>} ErrorHookMethod
  */
 
 /**
@@ -11,14 +13,14 @@ import addHooks from './helpers/add-hooks';
   e.g. It can also be used to handle specific error by throw error in the handler.
  *
  * @param {object} config - Config.
- * @param {ErrorHookConfig} config.condition - Condition to call the handler.
- * @param {ErrorHook} config.handler - What to do when the condition met.
+ * @param {ErrorHookMethod<boolean>} [config.condition] - Condition to call the handler.
+ * @param {ErrorHookMethod<void>} [config.handler] - What to do when the condition met.
  */
 const errorHandler = ({ condition = () => false, handler = () => {} } = {}) =>
   addHooks({
-    errorHook: (e, param, meta, context, action) => {
-      if (condition(e)) {
-        handler(e, param, meta, context, action);
+    errorHook: (e, p, m, c, a) => {
+      if (condition(e, p, m, c, a)) {
+        handler(e, p, m, c, a);
       }
     },
   });
