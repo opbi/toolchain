@@ -34,7 +34,6 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.10.0",
-    "eslint-config-standard-jsdoc": "^9.3.0",
     "eslint-import-resolver-node": "^0.3.3",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^23.8.1",
@@ -51,6 +50,5 @@
   "engines": {
     "node": ">=10.19"
   },
-  "main": "dist/index.js",
-  "optionalDependencies": {}
+  "main": "dist/index.js"
 }

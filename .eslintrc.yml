@@ -10,9 +10,9 @@ env:
   jest/globals: true
 extends:
   - airbnb-base
-  - standard-jsdoc
   - plugin:jest/recommended
-  - prettier
+  - plugin:jsdoc/recommended
+  - plugin:prettier/recommended
 plugins:
   - import
   - jest
@@ -20,6 +20,7 @@ plugins:
   - prettier
 rules:
   valid-jsdoc: 'off'
+  jsdoc/check-types: 'off'
   jsdoc/require-param: 'off'
   jsdoc/require-returns: 'off'
   import/extensions: [warn, {js: never}]
@@ -42,3 +43,5 @@ settings:
       moduleDirectory:
         - ./src
         - ./node_modules
+  jsdoc:
+    mode: typescript

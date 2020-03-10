@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "noEmit": true,
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "removeComments": false,
     "declaration": true,
     "alwaysStrict": true,
     "strictNullChecks": false,
+    "target": "es6",
     "moduleResolution": "node",
+    "module": "commonjs",
     "outDir": "types",
-    "module": "commonjs"
+    "baseUrl": "./src"
   },
   "include": [
     "src/**/*"

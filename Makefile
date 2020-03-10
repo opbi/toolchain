@@ -19,7 +19,7 @@ build-watch:
 	@babel src -d dist --ignore '**/__tests__/*.js' --watch
 
 type-check:
-	@tsc --noEmit
+	@tsc
 
 lint:
 	@eslint_d src
