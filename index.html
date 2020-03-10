@@ -595,103 +595,6 @@
   </div>
   
 
-  
-    <div class='pre p1 fill-light mt0'>errorCounter</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
-            = <code>{}</code>)</code>
-	    
-          </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>$0.parseLabel</span> <code class='quiet'>any</code>
-  
-    (default <code>()=&gt;{}</code>)
-  </td>
-  <td class='break-word'><span></span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>$0.value</span> <code class='quiet'>any</code>
-  
-    (default <code>()=&gt;1</code>)
-  </td>
-  <td class='break-word'><span></span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='errorcounter'>
-      errorCounter
-    </h3>
-    
-    
-  </div>
-  
-
   <p>A decorator to use context.metrics to count error thrown from action.</p>
 
     <div class='pre p1 fill-light mt0'>errorCounter</div>
@@ -785,8 +688,8 @@
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='errorhandler'>
-      errorHandler
+    <h3 class='fl m0' id='errorcounter'>
+      errorCounter
     </h3>
     
     
@@ -794,7 +697,7 @@
   
 
   
-    <div class='pre p1 fill-light mt0'>errorHandler</div>
+    <div class='pre p1 fill-light mt0'>errorCounter</div>
   
   
 
@@ -830,9 +733,9 @@
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.condition</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>$0.parseLabel</span> <code class='quiet'>any</code>
   
-    (default <code>()=&gt;false</code>)
+    (default <code>()=&gt;{}</code>)
   </td>
   <td class='break-word'><span></span></td>
 </tr>
@@ -840,9 +743,9 @@
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.handler</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>$0.value</span> <code class='quiet'>any</code>
   
-    (default <code>()=&gt;{}</code>)
+    (default <code>()=&gt;1</code>)
   </td>
   <td class='break-word'><span></span></td>
 </tr>
@@ -948,6 +851,103 @@ e.g. It can also be used to handle specific error by throw error in the handler.
   </td>
   <td class='break-word'><span>What to do when the condition met.
 </span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorhandler'>
+      errorHandler
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>errorHandler</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.condition</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;false</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.handler</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span></span></td>
 </tr>
 
 
@@ -1178,67 +1178,6 @@ e.g. It can also be used to handle specific error by throw error in the handler.
   </div>
   
 
-  
-    <div class='pre p1 fill-light mt0'>errorRetry</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>options</span> <code class='quiet'>(any
-            = <code>{}</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='errorretry'>
-      errorRetry
-    </h3>
-    
-    
-  </div>
-  
-
   <p>A decorator to retry action until condition met or reach maxRetries.</p>
 
     <div class='pre p1 fill-light mt0'>errorRetry</div>
@@ -1322,6 +1261,67 @@ e.g. It can also be used to handle specific error by throw error in the handler.
 
       
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errorretry'>
+      errorRetry
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>errorRetry</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(any
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
   
 
   
@@ -1642,6 +1642,93 @@ error: log error event, with option to parse error.</p>
   </div>
   
 
+  
+    <div class='pre p1 fill-light mt0'>eventTimer</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>$0.parseLabel</span> <code class='quiet'>any</code>
+  
+    (default <code>()=&gt;{}</code>)
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventtimer'>
+      eventTimer
+    </h3>
+    
+    
+  </div>
+  
+
   <p>A decorator to timing action execution time in both success/error cases
 and send metrics using the client attached in context.</p>
 
@@ -1688,93 +1775,6 @@ and send metrics using the client attached in context.</p>
   </td>
   <td class='break-word'><span>Function use to include labels that are not directly presented in meta.
 </span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='eventtimer'>
-      eventTimer
-    </h3>
-    
-    
-  </div>
-  
-
-  
-    <div class='pre p1 fill-light mt0'>eventTimer</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
-            = <code>{}</code>)</code>
-	    
-          </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>$0.parseLabel</span> <code class='quiet'>any</code>
-  
-    (default <code>()=&gt;{}</code>)
-  </td>
-  <td class='break-word'><span></span></td>
 </tr>
 
 
