@@ -4,12 +4,10 @@ import sleep from 'lib/sleep';
 import addHooks from './helpers/add-hooks';
 
 /**
+ * A decorator to retry action until condition met or reach maxRetries.
+ *
  * @template T
  * @typedef {import('./types').ErrorHookMethod<T>} ErrorHookMethod
- */
-
-/**
- * A decorator to retry action until condition met or reach maxRetries.
  *
  * @param {object} options - Config.
  * @param {ErrorHookMethod<boolean>} [options.condition] - Condition to retry.

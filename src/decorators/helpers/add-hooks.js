@@ -1,6 +1,8 @@
 // @ts-check
 
 /**
+ * An opinionated decorator creator to ensure predictable behaviour with light test.
+ *
  * @typedef {import('../types').BypassHook} BypassHook
  * @typedef {import('../types').StoreHook} StoreHook
  * @typedef {import('../types').BeforeHook} BeforeHook
@@ -8,12 +10,8 @@
  * @typedef {import('../types').AfterHook} AfterHook
  * @typedef {import('../types').ErrorHook} ErrorHook
  * @typedef {import('../types').Decorator} Decorator
- */
-
-/**
- * An opinionated decorator creator to ensure predictable behaviour with light test.
  *
- * @param {object} options - Options.
+ * @param {Object} options - Options.
  * @param {BypassHook} [options.bypassHook] - Define a condition to bypass the decorator.
  * @param {StoreHook} [options.storeHook] -  Define a function to prepare values to be accessed by other hooks.
  * @param {BeforeHook} [options.beforeHook] - Define a function to be executed before calling action.

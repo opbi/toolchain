@@ -3,13 +3,11 @@
 import addHooks from './helpers/add-hooks';
 
 /**
+ * A decorator used on actions when they are not chained with a logged upper-level call
+   this decorator attaches action name to the error then being thrown to a logged level.
+ *
  * @template T
  * @typedef {import('./types').ErrorHookMethod<T>} ErrorHookMethod
- */
-
-/**
- * A decorator used on actions when they are not chained with a logged upper-level call
-  this decorator attaches action name to the error then being thrown to a logged level.
  *
  * @param {object} options - Config.
  * @param {ErrorHookMethod<object>} [options.tag] - Function to append what to tag to the error.

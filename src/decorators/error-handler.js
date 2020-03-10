@@ -3,14 +3,12 @@
 import addHooks from './helpers/add-hooks';
 
 /**
- * @template T
- * @typedef {import('./types').ErrorHookMethod<T>} ErrorHookMethod
- */
-
-/**
  * A decorator to add conditional side-effect before error being thrown
   e.g. It can be used together with error-metrics to create conditional error-metrics
   e.g. It can also be used to handle specific error by throw error in the handler.
+ *
+ * @template T
+ * @typedef {import('./types').ErrorHookMethod<T>} ErrorHookMethod
  *
  * @param {object} options - Config.
  * @param {ErrorHookMethod<boolean>} [options.condition] - Condition to call the handler.

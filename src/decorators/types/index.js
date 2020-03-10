@@ -1,13 +1,15 @@
 // @ts-check
 
 /**
- *  empty function export as workaround for typescript
- *  to parse the file as a module
+ *  exists to make the type file a valid module for tsc
+ *
+ * @private
  */
-export default function() {}
+export default undefined;
 
 /**
  * @typedef {undefined | null | boolean | bigint | number | string | object | Array | Date } NotFunction
+ * @private
  */
 
 /**
@@ -53,7 +55,11 @@ export default function() {}
  * It is accessible in the hook definition to make decorators
  * to call the action function recursively or modify its args/behaviour.
  *
- * @typedef {(p: Param?, m: Meta?, c: Context?) => any} Action
+ * @typedef {Function} Action
+ * @param {Param} param
+ * @param {Meta} [meta]
+ * @param {Context} [context]
+ * @returns {any}
  *
  * @example
  *   `errorRetry` decorator calls Action with updated Meta under valid conditions

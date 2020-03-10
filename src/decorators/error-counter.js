@@ -3,12 +3,10 @@
 import addHooks from './helpers/add-hooks';
 
 /**
+ * A decorator to use context.metrics to count error thrown from action.
+ *
  * @template T
  * @typedef {import('./types').ErrorHookMethod<T>} ErrorHookMethod
- */
-
-/**
- * A decorator to use context.metrics to count error thrown from action.
  *
  * @param {object} options - Decorator config.
  * @param {ErrorHookMethod<object>} [options.parseLabel] - Use to add extra labels to error metrics.

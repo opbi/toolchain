@@ -3,13 +3,11 @@
 import addHooks from './helpers/add-hooks';
 
 /**
- * @template T
- * @typedef {import('./types').StorageHookMethod<T>} StorageHookMethod
- */
-
-/**
  * A decorator to timing action execution time in both success/error cases
   and send metrics using the client attached in context.
+ *
+ * @template T
+ * @typedef {import('./types').StorageHookMethod<T>} StorageHookMethod
  *
  * @param {object} options - Config.
  * @param {StorageHookMethod<object>} [options.parseLabel] - Function use to include labels that are not directly presented in meta.

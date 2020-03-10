@@ -3,12 +3,10 @@
 import addHooks from './helpers/add-hooks';
 
 /**
+ * A decorator to mute errors when conditions are met.
+ *
  * @template T
  * @typedef {import('./types').ErrorHookMethod<T>} ErrorHookMethod
- */
-
-/**
- * A decorator to mute errors when conditions are met.
  *
  * @param {object} options - Config.
  * @param  {ErrorHookMethod<boolean>} [options.condition] - Condition to mute the error.

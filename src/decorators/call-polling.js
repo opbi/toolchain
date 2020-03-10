@@ -5,7 +5,7 @@ import sleep from 'lib/sleep';
 /**
  * A decorator used to poll remote endpoint with action.
  *
- * @param {object} config - Config.
+ * @param {Object} config - Config.
  * @param {Function} config.until - The function to set conditions to stop the polling and return the data.
  * @param {Function} config.mapping - The mapping function to transform response to the data format needed.
  * @param {number}  config.interval - Time to wait between each polling call.
