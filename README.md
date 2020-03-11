@@ -1,5 +1,5 @@
 <h3 align="center">toolchain</h3>
-<p align="center" style="margin-bottom: 2em;">🔪 the swiss knife to lift business logic to be production ready</p>
+<p align="center" style="margin-bottom: 2em;">🏂 the swiss knife to lift business logic to be production ready</p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@opbi/toolchain">
