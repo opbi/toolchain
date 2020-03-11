@@ -116,6 +116,16 @@
               
                 
                 <li><a
+                  href='#store'
+                  class="">
+                  Store
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#bypasshook'
                   class="">
                   BypassHook
@@ -259,16 +269,6 @@
                   href='#action'
                   class="">
                   Action
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#store'
-                  class="">
-                  Store
                   
                 </a>
                 
@@ -1340,6 +1340,67 @@ and send metrics using the client attached in context.</p>
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='store'>
+      Store
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Store - the arg stores temprorary variables to be used by different hooks.
+It is produced in the storeHook and then passed as the last arg of beforeHook, actionHook, afterHook, errorHook.</p>
+
+    <div class='pre p1 fill-light mt0'>Store</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, any>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`eventLogger`</span> decorator parse Action.name to <span class="hljs-string">`event`</span> and put it <span class="hljs-keyword">in</span> the store,
+  which is later accessed <span class="hljs-keyword">in</span> afterHook to be logged when action call succeeds</pre>
+    
   
 
   
@@ -2717,67 +2778,6 @@ to call the action function recursively or modify its args/behaviour.</p>
   to mute the first error thrown <span class="hljs-keyword">from</span> the action <span class="hljs-function"><span class="hljs-keyword">function</span>
 
   `<span class="hljs-title">eventLogger</span>` <span class="hljs-title">decorator</span> <span class="hljs-title">parse</span> <span class="hljs-title">Action</span>.<span class="hljs-title">name</span> <span class="hljs-title">in</span> <span class="hljs-title">storeHook</span> <span class="hljs-title">and</span> <span class="hljs-title">automatically</span> <span class="hljs-title">attachs</span> <span class="hljs-title">it</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">log</span></span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='store'>
-      Store
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Store - the arg stores temprorary variables to be used by different hooks.
-It is produced in the storeHook and then passed as the last arg of beforeHook, actionHook, afterHook, errorHook.</p>
-
-    <div class='pre p1 fill-light mt0'>Store</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, any>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`eventLogger`</span> decorator parse Action.name to <span class="hljs-string">`event`</span> and put it <span class="hljs-keyword">in</span> the store,
-  which is later accessed <span class="hljs-keyword">in</span> afterHook to be logged when action call succeeds</pre>
     
   
 
