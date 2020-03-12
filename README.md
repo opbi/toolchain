@@ -1,5 +1,5 @@
 <h3 align="center">toolchain</h3>
-<p align="center" style="margin-bottom: 2em;">🎯 functional hooks for consistent micro-service observability</p>
+<p align="center" style="margin-bottom: 2em;">🎯 modular decorators for consistent micro-service observability</p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@opbi/toolchain">
