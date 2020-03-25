@@ -201,6 +201,7 @@ You can also create more decorators for yourself or the ecosystem with the relia
 
 ### Inspiration
 * [Financial-Times/n-express-monitor](https://github.com/Financial-Times/n-express-monitor)
+* [recompose](https://github.com/acdlite/recompose)
 
 ### License
 [MIT](License)
