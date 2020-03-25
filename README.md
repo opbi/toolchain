@@ -199,5 +199,8 @@ Currently available decorators are as following:
 
 You can also create more decorators for yourself or the ecosystem with the reliable standard decorator creator(coming soon). It helps you to maintain a standard across your decorators to ensure compatibility and consistent develop experience.
 
+### Inspiration
+* [Financial-Times/n-express-monitor](https://github.com/Financial-Times/n-express-monitor)
+
 ### License
 [MIT](License)
