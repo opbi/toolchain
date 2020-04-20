@@ -116,6 +116,16 @@
               
                 
                 <li><a
+                  href='#action'
+                  class="">
+                  Action
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#store'
                   class="">
                   Store
@@ -259,16 +269,6 @@
                   href='#context'
                   class="">
                   Context
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#action'
-                  class="">
-                  Action
                   
                 </a>
                 
@@ -1340,6 +1340,107 @@ and send metrics using the client attached in context.</p>
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='action'>
+      Action
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Action - the decorated action function itself.
+It is accessible in the hook definition to make decorators
+to call the action function recursively or modify its args/behaviour.</p>
+
+    <div class='pre p1 fill-light mt0'>Action(param: <a href="#param">Param</a>, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?): any</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`errorRetry`</span> decorator calls Action <span class="hljs-keyword">with</span> updated Meta under valid conditions
+  to mute the first error thrown <span class="hljs-keyword">from</span> the action <span class="hljs-function"><span class="hljs-keyword">function</span>
+
+  `<span class="hljs-title">eventLogger</span>` <span class="hljs-title">decorator</span> <span class="hljs-title">parse</span> <span class="hljs-title">Action</span>.<span class="hljs-title">name</span> <span class="hljs-title">in</span> <span class="hljs-title">storeHook</span> <span class="hljs-title">and</span> <span class="hljs-title">automatically</span> <span class="hljs-title">attachs</span> <span class="hljs-title">it</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">log</span></span></pre>
+    
   
 
   
@@ -2677,107 +2778,6 @@ and passed to hook functions through standard hook definitions.</p>
       
       <pre class='p1 overflow-auto round fill-light'>logger, metrics, database client can be attached to the context and being used by errorHooks,
   so that errorHooks are not bundled <span class="hljs-keyword">with</span> the clients</pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='action'>
-      Action
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Action - the decorated action function itself.
-It is accessible in the hook definition to make decorators
-to call the action function recursively or modify its args/behaviour.</p>
-
-    <div class='pre p1 fill-light mt0'>Action(param: <a href="#param">Param</a>, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?): any</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`errorRetry`</span> decorator calls Action <span class="hljs-keyword">with</span> updated Meta under valid conditions
-  to mute the first error thrown <span class="hljs-keyword">from</span> the action <span class="hljs-function"><span class="hljs-keyword">function</span>
-
-  `<span class="hljs-title">eventLogger</span>` <span class="hljs-title">decorator</span> <span class="hljs-title">parse</span> <span class="hljs-title">Action</span>.<span class="hljs-title">name</span> <span class="hljs-title">in</span> <span class="hljs-title">storeHook</span> <span class="hljs-title">and</span> <span class="hljs-title">automatically</span> <span class="hljs-title">attachs</span> <span class="hljs-title">it</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">log</span></span></pre>
     
   
 
