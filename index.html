@@ -20,6 +20,9 @@
             placeholder='Filter'
             id='filter-input'
             class='col12 block input'
+            spellcheck='false'
+            autocapitalize='off'
+            autocorrect='off'
             type='text' />
           <div id='toc'>
             <ul class='list-reset h5 py1-ul'>
@@ -109,6 +112,26 @@
                   href='#addhooks'
                   class="">
                   addHooks
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#context'
+                  class="">
+                  Context
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#action'
+                  class="">
+                  Action
                   
                 </a>
                 
@@ -256,19 +279,9 @@
               
                 
                 <li><a
-                  href='#context'
+                  href='#health'
                   class="">
-                  Context
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#action'
-                  class="">
-                  Action
+                  health
                   
                 </a>
                 
@@ -487,6 +500,8 @@
   
 
   
+
+  
 </section>
 
           
@@ -571,6 +586,8 @@
         </div>
       
     </div>
+  
+
   
 
   
@@ -691,6 +708,8 @@ e.g. It can also be used to handle specific error by throw error in the handler.
   
 
   
+
+  
 </section>
 
           
@@ -776,6 +795,8 @@ e.g. It can also be used to handle specific error by throw error in the handler.
 
       
     
+  
+
   
 
   
@@ -903,6 +924,8 @@ e.g. It can also be used to handle specific error by throw error in the handler.
   
 
   
+
+  
 </section>
 
           
@@ -977,6 +1000,8 @@ this decorator attaches action name to the error then being thrown to a logged l
         </div>
       
     </div>
+  
+
   
 
   
@@ -1105,6 +1130,8 @@ error: log error event, with option to parse error.</p>
   
 
   
+
+  
 </section>
 
           
@@ -1179,6 +1206,8 @@ and send metrics using the client attached in context.</p>
         </div>
       
     </div>
+  
+
   
 
   
@@ -1349,6 +1378,175 @@ and send metrics using the client attached in context.</p>
   
 
   
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='context'>
+      Context
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Context - the rag houses functional instances attached to the action function to make calls outside the function.
+It is the thrid arg in the standard action function signature,
+and passed to hook functions through standard hook definitions.</p>
+
+    <div class='pre p1 fill-light mt0'>Context</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>logger, metrics, database client can be attached to the context and being used by errorHooks,
+  so that errorHooks are not bundled <span class="hljs-keyword">with</span> the clients</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='action'>
+      Action
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Action - the decorated action function itself.
+It is accessible in the hook definition to make decorators
+to call the action function recursively or modify its args/behaviour.</p>
+
+    <div class='pre p1 fill-light mt0'>Action(param: <a href="#param">Param</a>, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?): any</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`errorRetry`</span> decorator calls Action <span class="hljs-keyword">with</span> updated Meta under valid conditions
+  to mute the first error thrown <span class="hljs-keyword">from</span> the action <span class="hljs-function"><span class="hljs-keyword">function</span>
+
+  `<span class="hljs-title">eventLogger</span>` <span class="hljs-title">decorator</span> <span class="hljs-title">parse</span> <span class="hljs-title">Action</span>.<span class="hljs-title">name</span> <span class="hljs-title">in</span> <span class="hljs-title">storeHook</span> <span class="hljs-title">and</span> <span class="hljs-title">automatically</span> <span class="hljs-title">attachs</span> <span class="hljs-title">it</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">log</span></span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
 </section>
 
           
@@ -1384,6 +1582,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
   
   
   
+  
+
   
 
   
@@ -1492,6 +1692,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
@@ -1583,6 +1785,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
 
       
     
+  
+
   
 
   
@@ -1694,6 +1898,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
   
 
   
+
+  
 </section>
 
           
@@ -1792,6 +1998,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
   
 
   
+
+  
 </section>
 
           
@@ -1873,6 +2081,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
         </div>
       
     </div>
+  
+
   
 
   
@@ -2002,6 +2212,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
   
 
   
+
+  
 </section>
 
           
@@ -2108,6 +2320,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
   
 
   
+
+  
 </section>
 
           
@@ -2189,6 +2403,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
         </div>
       
     </div>
+  
+
   
 
   
@@ -2320,6 +2536,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
   
 
   
+
+  
 </section>
 
           
@@ -2426,6 +2644,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
   
 
   
+
+  
 </section>
 
           
@@ -2500,6 +2720,8 @@ It is produced in the storeHook and then passed as the last arg of beforeHook, a
   
 
   
+
+  
 </section>
 
           
@@ -2536,6 +2758,8 @@ and passed to hook functions through standard hook definitions.</p>
   
   
   
+  
+
   
 
   
@@ -2609,6 +2833,8 @@ and passed to hook functions through standard hook definitions.</p>
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
@@ -2635,86 +2861,16 @@ and passed to hook functions through standard hook definitions.</p>
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='context'>
-      Context
+    <h3 class='fl m0' id='health'>
+      health
     </h3>
     
     
   </div>
   
 
-  <p>Context - the rag houses functional instances attached to the action function to make calls outside the function.
-It is the thrid arg in the standard action function signature,
-and passed to hook functions through standard hook definitions.</p>
-
-    <div class='pre p1 fill-light mt0'>Context</div>
   
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>logger, metrics, database client can be attached to the context and being used by errorHooks,
-  so that errorHooks are not bundled <span class="hljs-keyword">with</span> the clients</pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='action'>
-      Action
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Action - the decorated action function itself.
-It is accessible in the hook definition to make decorators
-to call the action function recursively or modify its args/behaviour.</p>
-
-    <div class='pre p1 fill-light mt0'>Action(param: <a href="#param">Param</a>, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?): any</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
+    <div class='pre p1 fill-light mt0'>health(req: any, res: any)</div>
   
   
 
@@ -2731,7 +2887,7 @@ to call the action function recursively or modify its args/behaviour.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>)</code>
+            <span class='code bold'>req</span> <code class='quiet'>(any)</code>
 	    
           </div>
           
@@ -2739,15 +2895,7 @@ to call the action function recursively or modify its args/behaviour.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
+            <span class='code bold'>res</span> <code class='quiet'>(any)</code>
 	    
           </div>
           
@@ -2759,26 +2907,11 @@ to call the action function recursively or modify its args/behaviour.</p>
   
 
   
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>:
-        
-
-      
-    
-  
 
   
 
   
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`errorRetry`</span> decorator calls Action <span class="hljs-keyword">with</span> updated Meta under valid conditions
-  to mute the first error thrown <span class="hljs-keyword">from</span> the action <span class="hljs-function"><span class="hljs-keyword">function</span>
 
-  `<span class="hljs-title">eventLogger</span>` <span class="hljs-title">decorator</span> <span class="hljs-title">parse</span> <span class="hljs-title">Action</span>.<span class="hljs-title">name</span> <span class="hljs-title">in</span> <span class="hljs-title">storeHook</span> <span class="hljs-title">and</span> <span class="hljs-title">automatically</span> <span class="hljs-title">attachs</span> <span class="hljs-title">it</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">log</span></span></pre>
-    
   
 
   
@@ -2848,6 +2981,8 @@ e.g. When it is stats for errorCodes.</p>
 
       
     
+  
+
   
 
   
@@ -2966,6 +3101,8 @@ e.g. When it is stats for errorCodes.</p>
   
 
   
+
+  
 </section>
 
           
@@ -3028,6 +3165,8 @@ e.g. When it is stats for errorCodes.</p>
   
 
   
+
+  
 </section>
 
           
@@ -3073,6 +3212,8 @@ e.g. When it is stats for errorCodes.</p>
 
       
     
+  
+
   
 
   
@@ -3199,6 +3340,8 @@ e.g. When it is stats for errorCodes.</p>
   
 
   
+
+  
 </section>
 
           
@@ -3228,6 +3371,8 @@ e.g. When it is stats for errorCodes.</p>
   
   
   
+  
+
   
 
   
@@ -3326,6 +3471,8 @@ e.g. When it is stats for errorCodes.</p>
   
 
   
+
+  
 </section>
 
           
@@ -3392,6 +3539,8 @@ e.g. When it is stats for errorCodes.</p>
 
       
     
+  
+
   
 
   
