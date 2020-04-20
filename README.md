@@ -1,7 +1,7 @@
 <p align="center">🎯</p>
 
 <h3 align="center">toolchain</h3>
-<p align="center" style="margin-bottom: 2em;">modular decorators for consistent micro-service observability</p>
+<p align="center" style="margin-bottom: 2em;">configurable function hooks to standardise reusable function behaviour</p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@opbi/toolchain">
@@ -43,10 +43,86 @@
 
 ### Purpose
 
-There're a large amount of semi-automatable codes in most production codebases, especially around input validation/null check, error/exception handling, observability anchors(log, metrics, tracing) and various other elements to thread functions together to achieve business goals stably. All those are essential for production code, while they are slowly corrupting the readability/maintability of the codebase, incuring huge communication cost between teams due to a lack of common standards. Fortunately, without AI, it is still possible to automate some of those common programming actions with a standard.
+Turn scattered repeatitive control mechanism or observability code from interwined blocks to more readable, reusable, testable ones.
 
-With the power of function composition in Javascript, it becomes very simple to modularize those control mechanisms in the form of well-tested reusable decorators. This makes the core business logic functions extremely conscise and easy to read/test/migrate.
+By abstract out common control mechanism and observability code into well-tested, composable hooks, it can effectively half the verboseness of your code. This helps to achieve codebase that is self-explanatory of its business logic and technical behaviour. Additionally, conditionally turning certain mechanism off makes testing the code very handy.
 
+Let's measure the effect in LOC (Line of Code) and LOI (Level of Indent) by an example of cancelling user subscription on server-side with some minimal error handling of retry and restore. The simplification effect will be magnified with increasing complexity of the control mechanism.
+
+> Using @opbi/toolchain Hooks: LOC = 16, LOI = 2
+```js
+// import userProfileApi from './api/user-profile';
+// import subscriptionApi from './api/subscription';
+// import restoreSubscription from './restore-subscription'
+
+import { errorRetry, errorHandler, chain } from '@opbi/toolchain/dist/hooks';
+
+const retryOnTimeoutError = errorRetry({
+  condition: e => e.type === 'TimeoutError'
+});
+
+const restoreOnServerError = errorHandler({
+  condition: e => e.code > 500,
+  handler: (e, p, m, c) => restoreSubscription(p, m, c),
+});
+
+const cancelSubscription = async ({ userId }, meta, context) => {
+  const { subscriptionId } = await chain(
+    retryOnTimeoutError
+  )(userProfileApi.getSubscription)( { userId }, meta, context );
+
+  await chain(
+    errorRetry(), restoreOnServerError,
+  )(subscriptionApi.cancel)({ subscriptionId }, meta, context);
+};
+
+// export default cancelSubscription;
+```
+
+> Vanilla JavaScript: LOC = 32, LOI = 4
+```js
+// import userProfileApi from './api/user-profile';
+// import subscriptionApi from './api/subscription';
+// import restoreSubscription from './restore-subscription'
+
+const cancelSubscription = async({ userId }, meta, context) => {
+  let subscriptionId;
+
+  try {
+    const result = await userProfileApi.getSubscription({ userId }, meta, context);
+    subscriptionId = result.subscriptionId;
+  } catch (e) {
+    if(e.type === 'TimeoutError'){
+      const result = await userProfileApi.getSubscription({ userId }, meta, context);
+      subscriptionId = result.subscriptionId;
+    }
+    throw e;
+  }
+
+  try {
+    try {
+      await subscriptionApi.cancel({ subscriptionId }, meta, context);
+    } catch (e) {
+      if(e.code > 500) {
+        await restoreSubscription({ subscriptionId }, meta, context);
+      }
+      throw e;
+    }
+  } catch (e) {
+    try {
+      return await subscriptionApi.cancel({ subscriptionId }, meta, context);
+    } catch (e) {
+      if(e.code > 500) {
+        await restoreSubscription({ subscriptionId }, meta, context);
+      }
+      throw e;
+    }
+  }
+}
+
+// export default cancelSubscription;
+```
+---
 ### How to Use
 
 #### Install
@@ -54,134 +130,45 @@ With the power of function composition in Javascript, it becomes very simple to 
 yarn add @opbi/toolchain
 ```
 
-#### Concepts & Conventions
+#### Standard Function
 
-A few concepts and conventions are introduced to make a standard for those decorators to work well with each other. We'll call a core logic function `action`, and it comes with a standard function signature of `(param<object>, meta<object>, context<object>)`. `param` is the arg of the input values to the core logic action, and with object destruct assigning it is a best-practice to make function calls. `meta` is the arg to be used primarily by logger, metrics clients to anchor meta-data of the function calls to provide the background where and how this call happened. `context` is the arg where you append instances of e.g. logger, metrics and other functions down to the action calling chain.
+Standardisation of function signature is powerful that it creates predictable value flows throughout the functions and hooks chain, making functions more friendly to meta-programming. Moreover, it is also now a best-practice to use object destruct assign for key named parameters.
 
-The decorators come with a standard config step `decorator(config)(action)`, and are named in the format of `[hook point]-[client/behaviour]`, e.g. `errorCounter, eventLogger`.
-
-There are generally three hook points: `before, after, error`, and when a decorator is hooked into both after and error, we call it `event`.
-
-#### Compose & Reuse
-
-Say we're going to build a simple module to parse and upload a list of json files to a database. Using the decorators, we can write minimum code in `json-file-reader.js` and `db-batch-write.js` just to cover the essential logics and get them tested. Then assemble those step actions in the main module.
-
+Via exploration and the development of hooks, we set a function signature standard to define the order of different kinds of variables as expected and we call it `action function`:
 ```js
-//json-to-db.js
-import {
-  errorCounter,
-  errorMute,
-  errorRetry,
-  eventLogger,
-  eventTimer,
-  recompose,
-} from '@opbi/toolchain/dist/decorators';
-
-import jsonFileReader from './json-file-reader';
-import dbBatchWrite from './db-batch-write';
-
-const actionErrorLessThan = number =>
-  (e, p, m, { metrics }, action) =>
-    metrics &&
-    metrics.find({ action, type: 'error' }).value() < number;
-
-const labelBatchSize = (p, m, c) => ({ batchSize: c.batch.size });
-
-const jsonToDb = async ({ fileList }, meta, context) => {
-  const data = await recompose(
-    errorMute({ condition: actionErrorLessThan(20) }),
-    eventTimer(),
-    eventLogger(),
-    errorCounter(),
-  )(jsonFileReader)({ fileList }, meta, context);
-
-  await recompose(
-    eventTimer({ parseLabel: labelBatchSize }),
-    errorRetry(),
-    eventLogger(),
-    errorCounter(),
-    errorMute({ condition: e => e.code === 11000}),
-  )(dbBatchWrite)({ data }, meta, context);
-};
-
-export default jsonToDb;
+/**
+ * The standard function signature.
+ * @param  {object} param   - parameters input to the function
+ * @param  {object} meta    - metadata tagged to describe how the function is called, e.g. requestId
+ * @param  {object} context - contextual callable instances attached externally, e.g. metrics, logger
+ */
+function (param, meta, context) {}
 ```
 
-**The order of the decorators in the recompose chain matters.**
+#### Config the Hooks
 
-The afterHooks and errorHooks are from bottom to top, while the beforeHooks will be executed from top to bottom and meta/context would be passed from top to bottom.
+All the hooks in @opbi/toolchain are configurable with possible default settings.
 
-In the 1st recompose, because of the `errorMute` on the top position, before the number of errors counted by `errorCounter` reaches 20, any error populated from `jsonFileReader` would be muted so that jsonToDb process is not stopped.
-
-In the 2nd recompose above error with code 11000 would be muted and will not be populated to `errorCounter`, `eventLogger`, `errorRetry`, `eventTimer`. The `eventTimer` at the very top would time in the whole duration of execution even if multiple retries happened.
-
-You can see from above that, we can actually make decorator config function with names to make the behaviour highly descriptive. This makes it even possible to package and reuse function control patterns, which is a very efficient way to leverage the power of meta-programming.
+In the [cancelSubscription](#purpose) example, *errorRetry()* is using its default settings, while *restoreOnServerError* is configured *errorHandler*. Descriptive names of hook configurations help to make the behaviour very self-explanatory. Patterns composed of configured hooks can certainly be reused.
 
 ```js
-//patterns/observerable-retry.js
-import {
-  errorCounter,
-  errorRetry,
-  eventLogger,
-  eventTimer,
-  recompose,
-} from '@opbi/toolchain/dist/decorators';
-
-export default recompose(
-  eventTimer(),
-  errorRetry(),
-  eventLogger(),
-  errorCounter(),
-);
-```
-
-#### Error Handling
-
-Furthermore, this makes error handling very handy combing custom hanlders with universal handler.
-
-```js
-//cancel-subscription.js
-import {
-  errorHandler,
-  errorRetry,
-  recompose,
-} from '@opbi/toolchain/dist/decorators';
-
-import userProfileApi from './api/user-profile';
-import subscriptionApi from './api/subscription';
-
-import universalErrorPage from './handler/error-page';
-
-const errorForbiddenHandler = {
-  condition: e => e.code === 403,
-  handler: (e, p, m, { res }) => res.status(403).redirect('/');
-}
-
-const timeoutErrorRetry = errorRetry({
-  condition: e => e.type === 'TimeoutError'
+const restoreOnServerError = errorHandler({
+  condition: e => e.code > 500,
+  handler: (e, p, m, c) => restoreSubscription(p, m, c),
 });
-
-const cancelSubscription = async ({ userId }, meta, context) => {
-  const { subscriptionId } = await recompose(
-    errorHandler({ condition: e => e.code !== 403, handler: universalErrorPage })
-    errorHandler(errorForbiddenHandler),
-    timeoutErrorRetry
-  )(userProfileApi.getSubscription)(
-    { userId }, meta, context
-  );
-
-  await recompose(
-    errorHandler({
-      condition: e => e.code > 500,
-      handler: (e, { subscriptionId }, m, c) => subscriptionApi.restore({ subscriptionId }, m, c),
-    }),
-    timeoutErrorRetry,
-  )(subscriptionApi.cancel)({ subscriptionId }, meta, context);
-};
-
-export default cancelSubscription;
 ```
 
+#### Chain the Hooks
+
+> "The order of the hooks in the chain matters."
+
+<a href="https://innolitics.com/articles/javascript-decorators-for-promise-returning-functions/">
+  <img alt="decorators" width="640" src="https://innolitics.com/img/javascript-decorators.png"/>
+</a>
+
+Under the hood, the hooks are implemented in the [decorators](https://innolitics.com/articles/javascript-decorators-for-promise-returning-functions) pattern. The pre-hooks, action function, after-hooks/error-hooks are invoked in a pattern as illustrated above. In the [cancelSubscription](#purpose) example, as *errorRetry(), restoreOnServerError* are all error hooks, *restoreOnServerError* will be invoked first before *errorRetry* is invoked.
+
+---
 #### Ecosystem
 
 Currently available decorators are as following:
@@ -195,15 +182,45 @@ Currently available decorators are as following:
 * [eventLogger](https://github.com/opbi/toolchain/blob/master/src/decorators/event-logger.js)
 * [eventTimer](https://github.com/opbi/toolchain/blob/master/src/decorators/event-timer.js)
 
+Hooks are named in a convention to reveal where and how it works `[hook point][what it is/does]`, e.g. *errorCounter, eventLogger*.
+
+Hook points are named `before, after, error` and `event` (multiple points).
+
 #### Extension
 
-You can also create more decorators for yourself or the ecosystem with the reliable standard decorator creator(coming soon). It helps you to maintain a standard across your decorators to ensure compatibility and consistent develop experience.
+You can also create more decorators with [addHooks](https://github.com/opbi/toolchain/blob/master/src/decorators/helpers/add-hooks.js). Open source them aligning with the above standards are very encouraged.
 
+---
+#### Decorators
+Hooks here are essentially configurable decorators, while different in the way of usage. We found the name 'hooks' better describe the motion that they are attached to functions not modifying their original data process flow (keep it pure). Decorators are coupled with class methods, while hooks help to decouple definition and control, attaching to any function on demand.
+
+```js
+//decorators
+class SubscriptionAPI:
+  //...
+  @errorRetry()
+  cancel: () => {}
+```
+```js
+//hooks
+  withHooks(
+    errorRetry()
+  )(subscriptionApi.cancel)
+```
+
+#### Pipe Operator
+We are excited to see how pipe operator will be rolled out and hooks can be elegantly plugged in.
+```js
+const cancelSubscription = ({ userId }, meta, context)
+  |> withHook(timeoutErrorRetry)(userProfileApi.getSubscription)
+  |> withHook(restoreOnServerError, timeoutErrorRetry)(subscriptionApi.cancel);
+```
+---
 ### Inspiration
 * [Financial-Times/n-express-monitor](https://github.com/Financial-Times/n-express-monitor)
 * [recompose](https://github.com/acdlite/recompose)
 * [ramda](https://github.com/ramda/ramda)
 * [funcy](https://github.com/suor/funcy/)
-
+---
 ### License
 [MIT](License)
