@@ -1,7 +1,7 @@
 <p align="center">🎯</p>
 
 <h3 align="center">toolchain</h3>
-<p align="center" style="margin-bottom: 2em;">configurable function hooks to standardise reusable function behaviour</p>
+<p align="center" style="margin-bottom: 2em;">configurable hooks to standardise function mechanisms for consistency</p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@opbi/toolchain">
