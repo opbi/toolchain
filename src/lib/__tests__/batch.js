@@ -2,10 +2,7 @@ import createBatch from '../batch';
 
 describe('createBatch', () => {
   beforeEach(() => {
-    Date.now = jest
-      .fn()
-      .mockReturnValueOnce(2)
-      .mockReturnValue(4);
+    Date.now = jest.fn().mockReturnValueOnce(2).mockReturnValue(4);
   });
 
   it('create a batch with initial status', () => {

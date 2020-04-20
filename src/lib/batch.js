@@ -9,7 +9,7 @@ const createBatch = ({ size } = {}) => {
     get full() {
       return this.data.length >= this.size;
     },
-    add: value => {
+    add: (value) => {
       batch.data.push(value);
     },
     next: () => {

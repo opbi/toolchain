@@ -5,7 +5,7 @@
  *
  * @private
  */
-export default function() {}
+export default function () {}
 
 /**
  * @typedef {undefined | null | boolean | bigint | number | string | object | Array | Date } NotFunction

@@ -8,7 +8,7 @@ describe('callPolling', () => {
       .mockReturnValueOnce({ finished: false, value: 'no' })
       .mockReturnValueOnce({ finished: true, value: 'yes' });
     const decorated = callPolling({
-      until: result => result.finished,
+      until: (result) => result.finished,
     })(call);
     const data = await decorated();
     expect(data).toMatchSnapshot();
@@ -36,7 +36,7 @@ describe('callPolling', () => {
       .mockReturnValueOnce('yes');
     const startTime = Date.now();
     const decorated = callPolling({
-      until: result => result === 'yes',
+      until: (result) => result === 'yes',
       interval: 2 * 1000,
     })(original);
     await decorated();
@@ -51,7 +51,7 @@ describe('callPolling', () => {
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('yes');
     const decorated = callPolling({
-      until: result => result === 'yes',
+      until: (result) => result === 'yes',
       interval: 2 * 1000,
       timeout: 2000,
     })(original);
@@ -70,7 +70,7 @@ describe('callPolling', () => {
         throw Error('expected');
       });
     const decorated = callPolling({
-      until: result => result === 'yes',
+      until: (result) => result === 'yes',
     })(original);
 
     try {

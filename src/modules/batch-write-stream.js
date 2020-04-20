@@ -2,7 +2,7 @@ import { Writable } from 'stream';
 
 import { createBatch } from '../lib';
 
-const emitStreamError = inputFunction => async (param, meta, context) => {
+const emitStreamError = (inputFunction) => async (param, meta, context) => {
   try {
     const result = await inputFunction(param, meta, context);
     return result;

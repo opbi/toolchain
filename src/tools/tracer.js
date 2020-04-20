@@ -21,7 +21,7 @@ let instance;
 
 const tracer = {
   rootSpan: undefined,
-  start: name => {
+  start: (name) => {
     if (!instance) {
       instance = configTracer();
     }

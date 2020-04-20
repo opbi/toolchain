@@ -2,7 +2,7 @@ import addHooks from '../add-hooks';
 
 const callOrder = jest.fn();
 
-const callOrderWithName = hookName => () => {
+const callOrderWithName = (hookName) => () => {
   callOrder(hookName);
 };
 const beforeHook = callOrderWithName('beforeHook');
@@ -58,7 +58,7 @@ describe('addHooks', () => {
   });
 
   it('return result available in recursive errorHook instead of throwing an error', async () => {
-    const original = result => {
+    const original = (result) => {
       callOrder('original');
       if (result) {
         return 'result';

@@ -7,7 +7,7 @@ const progressMonitor = ({ position = 0, destination }) => {
     // startPosition/processed is also refreshed
     startTime: Date.now(),
     startPosition: position,
-    add: value => {
+    add: (value) => {
       progress.position += value;
     },
     get processed() {

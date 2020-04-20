@@ -52,8 +52,8 @@ const add = ({ type, name, ...specs }) => {
  *
  * @param  {Array} list - List of metrics specs.
  */
-const load = list => {
-  list.forEach(m => {
+const load = (list) => {
+  list.forEach((m) => {
     add(m);
   });
 };

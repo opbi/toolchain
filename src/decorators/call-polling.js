@@ -14,10 +14,10 @@ import sleep from 'lib/sleep';
  */
 const callPolling = ({
   until,
-  mapping = res => res,
+  mapping = (res) => res,
   interval = 1000,
   timeout = 30 * 1000,
-}) => action => async (param, meta = {}, context = {}) => {
+}) => (action) => async (param, meta = {}, context = {}) => {
   const { pollingStart = Date.now(), pollingData = [] } = context;
 
   const res = await action(param, meta, context);

@@ -6,6 +6,6 @@
  * @returns {boolean}   If contains.
  */
 const objectContains = (a, b) =>
-  Object.keys(b).every(keyName => b[keyName] === a[keyName]);
+  Object.keys(b).every((keyName) => b[keyName] === a[keyName]);
 
 export default objectContains;

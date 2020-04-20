@@ -2,10 +2,7 @@ import progressMonitor from '../progress';
 
 describe('progressMonitor', () => {
   beforeEach(() => {
-    Date.now = jest
-      .fn()
-      .mockReturnValueOnce(2)
-      .mockReturnValue(4);
+    Date.now = jest.fn().mockReturnValueOnce(2).mockReturnValue(4);
   });
 
   it('initialise with default 0 position and get the correct update', () => {
