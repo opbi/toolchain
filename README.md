@@ -203,7 +203,7 @@ class SubscriptionAPI:
 ```
 ```js
 //hooks
-  withHooks(
+  chain(
     errorRetry()
   )(subscriptionApi.cancel)
 ```
@@ -212,8 +212,8 @@ class SubscriptionAPI:
 We are excited to see how pipe operator will be rolled out and hooks can be elegantly plugged in.
 ```js
 const cancelSubscription = ({ userId }, meta, context)
-  |> withHook(timeoutErrorRetry)(userProfileApi.getSubscription)
-  |> withHook(restoreOnServerError, timeoutErrorRetry)(subscriptionApi.cancel);
+  |> chain(timeoutErrorRetry)(userProfileApi.getSubscription)
+  |> chain(restoreOnServerError, timeoutErrorRetry)(subscriptionApi.cancel);
 ```
 ---
 ### Inspiration
