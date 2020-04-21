@@ -57,6 +57,23 @@ describe('addHooks', () => {
     }
   });
 
+  it('returns result from afterHook if it is set for modification or recursion', async () => {
+    const original = (modification) => {
+      callOrder('original');
+      return modification ? 'modified result' : 'original result';
+    };
+
+    const recursiveAfterHook = (r, p, m, c, action) => {
+      const result = action(true);
+      return result;
+    };
+
+    const decorated = addHooks({ afterHook: recursiveAfterHook })(original);
+
+    const result = await decorated();
+    expect(result).toBe('modified result');
+  });
+
   it('return result available in recursive errorHook instead of throwing an error', async () => {
     const original = (result) => {
       callOrder('original');

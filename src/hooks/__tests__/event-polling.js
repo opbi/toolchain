@@ -28,6 +28,17 @@ describe('eventPolling', () => {
     expect(result).toEqual(['no', 'no', 'yes']);
   });
 
+  it('bypass the hook if until is not set', async () => {
+    const original = jest
+      .fn()
+      .mockReturnValueOnce({ ok: false, value: 'no' })
+      .mockReturnValueOnce({ ok: false, value: 'no' })
+      .mockReturnValueOnce({ ok: true, value: 'yes' });
+    const decorated = eventPolling()(original);
+    const result = await decorated();
+    expect(result).toEqual({ ok: false, value: 'no' });
+  });
+
   it('poll with the set interval', async () => {
     const original = jest
       .fn()

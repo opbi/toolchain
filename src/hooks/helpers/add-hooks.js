@@ -37,7 +37,18 @@ const addHooks = ({
 
     const result = await actionHook(param, meta, context, action, store);
 
-    await afterHook(result, param, meta, context, action, store);
+    const afterHookResult = await afterHook(
+      result,
+      param,
+      meta,
+      context,
+      action,
+      store,
+    );
+
+    if (afterHookResult !== undefined) {
+      return afterHookResult;
+    }
 
     return result;
   } catch (e) {
