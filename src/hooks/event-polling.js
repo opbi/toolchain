@@ -12,7 +12,7 @@ import sleep from 'lib/sleep';
  * @param {number}  config.timeout - The max time to wait for the polling before abort it.
  * @returns {Function}        The decorated function returns the polling result.
  */
-const callPolling = ({
+const eventPolling = ({
   until,
   mapping = (res) => res,
   interval = 1000,
@@ -33,7 +33,7 @@ const callPolling = ({
   await sleep(interval);
 
   // return later combined result recursively
-  return callPolling({
+  return eventPolling({
     until,
     mapping,
     interval,
@@ -45,4 +45,4 @@ const callPolling = ({
   });
 };
 
-export default callPolling;
+export default eventPolling;

@@ -1,1 +1,2 @@
-export { logger, metrics, tracer } from './tools';
+export * from './hooks';
+export * from './tools';
