@@ -171,7 +171,7 @@ Under the hood, the hooks are implemented in the [decorators](https://innolitics
 ---
 #### Ecosystem
 
-Currently available decorators are as following:
+Currently available hooks are as following:
 
 * [callPolling](https://github.com/opbi/toolchain/blob/master/src/decorators/call-polling.js)
 * [errorCounter](https://github.com/opbi/toolchain/blob/master/src/decorators/error-counter.js)
@@ -188,7 +188,7 @@ Hook points are named `before, after, error` and `event` (multiple points).
 
 #### Extension
 
-You can also create more decorators with [addHooks](https://github.com/opbi/toolchain/blob/master/src/decorators/helpers/add-hooks.js). Open source them aligning with the above standards are very encouraged.
+You can easily create more hooks with [addHooks](https://github.com/opbi/toolchain/blob/master/src/decorators/helpers/add-hooks.js). Open source them aligning with the above standards are very encouraged.
 
 ---
 #### Decorators
