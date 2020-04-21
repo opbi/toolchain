@@ -1,6 +1,8 @@
 export { default as chain } from './composer/reserve-name-compose';
 export { default as addHooks } from './helpers/add-hooks';
 
+export { default as adaptorExpress } from './adaptors/express';
+
 export { default as errorRetry } from './error-retry';
 export { default as errorMute } from './error-mute';
 export { default as errorHandler } from './error-handler';
