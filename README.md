@@ -216,8 +216,11 @@ const handler = chain(
 
 handler(req, res, next);
 ```
-#### Redux
-TBC
+#### Refactor
+To help adopting the hooks by testing them out with minimal refactor on non-standard signature functions, there's an unreleased [adaptor](https://github.com/opbi/toolchain/blob/adapator-non-standard/src/hooks/adaptors/nonstandard.js) to bridge the function signatures. It is not recommended to use this for anything but trying the hooks out, especially observability hooks are not utilised this way.
+
+#### Reducers
+Integration with Redux is TBC.
 
 #### Pipe Operator
 We are excited to see how pipe operator will be rolled out and hooks can be elegantly plugged in.
