@@ -139,8 +139,8 @@ Via exploration and the development of hooks, we set a function signature standa
 /**
  * The standard function signature.
  * @param  {object} param   - parameters input to the function
- * @param  {object} meta    - metadata tagged to describe how the function is called, e.g. requestId
- * @param  {object} context - contextual callable instances attached externally, e.g. metrics, logger
+ * @param  {object} meta    - metadata tagged for function observability(logger, metrics), e.g. requestId
+ * @param  {object} context - contextual callable instances or unrecorded metadata, e.g. logger, req
  */
 function (param, meta, context) {}
 ```
@@ -171,7 +171,7 @@ Under the hood, the hooks are implemented in the [decorators](https://innolitics
 ---
 #### Ecosystem
 
-Currently available hooks are as following:
+Currently available hooks:
 
 * [errorCounter](https://github.com/opbi/toolchain/blob/master/src/hooks/error-counter.js)
 * [errorHandler](https://github.com/opbi/toolchain/blob/master/src/hooks/error-handler.js)
@@ -182,9 +182,8 @@ Currently available hooks are as following:
 * [eventPoller](https://github.com/opbi/toolchain/blob/master/src/hooks/event-poller.js)
 * [eventTimer](https://github.com/opbi/toolchain/blob/master/src/hooks/event-timer.js)
 
-Hooks are named in a convention to reveal where and how it works `[hook point][what it is/does]`, e.g. *errorCounter, eventLogger*.
+> Hooks are named in a convention to reveal where and how it works `[hook point][what it is/does]`, e.g. *errorCounter, eventLogger*. Hook points are named `before, after, error` and `event` (multiple points).
 
-Hook points are named `before, after, error` and `event` (multiple points).
 
 #### Extension
 
