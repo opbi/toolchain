@@ -29,16 +29,6 @@
               
                 
                 <li><a
-                  href='#callpolling'
-                  class="">
-                  callPolling
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
                   href='#errorcounter'
                   class="">
                   errorCounter
@@ -99,6 +89,16 @@
               
                 
                 <li><a
+                  href='#eventpolling'
+                  class="">
+                  eventPolling
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#eventtimer'
                   class="">
                   eventTimer
@@ -112,166 +112,6 @@
                   href='#addhooks'
                   class="">
                   addHooks
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#context'
-                  class="">
-                  Context
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#action'
-                  class="">
-                  Action
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#store'
-                  class="">
-                  Store
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#bypasshook'
-                  class="">
-                  BypassHook
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#bypasshookmethod'
-                  class="">
-                  BypassHookMethod
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#storehook'
-                  class="">
-                  StoreHook
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#storagehookmethod'
-                  class="">
-                  StorageHookMethod
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#beforehook'
-                  class="">
-                  BeforeHook
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#actionhook'
-                  class="">
-                  ActionHook
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#afterhook'
-                  class="">
-                  AfterHook
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#afterhookmethod'
-                  class="">
-                  AfterHookMethod
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#errorhook'
-                  class="">
-                  ErrorHook
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#errorhookmethod'
-                  class="">
-                  ErrorHookMethod
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#decorator'
-                  class="">
-                  Decorator
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#param'
-                  class="">
-                  Param
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#meta'
-                  class="">
-                  Meta
                   
                 </a>
                 
@@ -382,136 +222,6 @@
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='callpolling'>
-      callPolling
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>A decorator used to poll remote endpoint with action.</p>
-
-    <div class='pre p1 fill-light mt0'>callPolling</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    Config.
-
-          </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>config.until</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
-  </td>
-  <td class='break-word'><span>The function to set conditions to stop the polling and return the data.
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>config.mapping</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
-  
-    (default <code>res=&gt;res</code>)
-  </td>
-  <td class='break-word'><span>The mapping function to transform response to the data format needed.
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>config.interval</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  
-    (default <code>1000</code>)
-  </td>
-  <td class='break-word'><span>Time to wait between each polling call.
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>config.timeout</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  
-    (default <code>30*1000</code>)
-  </td>
-  <td class='break-word'><span>The max time to wait for the polling before abort it.
-</span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>:
-        The decorated function returns the polling result.
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='errorcounter'>
       errorCounter
     </h3>
@@ -559,7 +269,7 @@
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.parseLabel</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>?</code>
+  <td class='break-word'><span class='code bold'>options.parseLabel</span> <code class='quiet'>ErrorHookMethod&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>?</code>
   
     (default <code>()=&gt;{}</code>)
   </td>
@@ -570,7 +280,7 @@
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.value</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>?</code>
+  <td class='break-word'><span class='code bold'>options.value</span> <code class='quiet'>ErrorHookMethod&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>?</code>
   
     (default <code>()=&gt;1</code>)
   </td>
@@ -664,7 +374,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.condition</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
+  <td class='break-word'><span class='code bold'>options.condition</span> <code class='quiet'>ErrorHookMethod&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
   
     (default <code>()=&gt;false</code>)
   </td>
@@ -675,7 +385,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.handler</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;void>?</code>
+  <td class='break-word'><span class='code bold'>options.handler</span> <code class='quiet'>ErrorHookMethod&#x3C;void>?</code>
   
     (default <code>()=&gt;{}</code>)
   </td>
@@ -767,7 +477,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.condition</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
+  <td class='break-word'><span class='code bold'>options.condition</span> <code class='quiet'>ErrorHookMethod&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
   
     (default <code>()=&gt;true</code>)
   </td>
@@ -867,7 +577,7 @@ e.g. It can also be used to handle specific error by throw error in the handler.
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.condition</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
+  <td class='break-word'><span class='code bold'>options.condition</span> <code class='quiet'>ErrorHookMethod&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>>?</code>
   </td>
   <td class='break-word'><span>Condition to retry.
 </span></td>
@@ -984,7 +694,7 @@ this decorator attaches action name to the error then being thrown to a logged l
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.tag</span> <code class='quiet'><a href="#errorhookmethod">ErrorHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>?</code>
+  <td class='break-word'><span class='code bold'>options.tag</span> <code class='quiet'>ErrorHookMethod&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>?</code>
   
     (default <code>(e,p,m,c,a)=&gt;{action:a.name,message:e.message,constructor:e.constructor.name,stack:e.stack.split(&#39;\n&#39;).map(s=&gt;s.trim())}</code>)
   </td>
@@ -1142,6 +852,136 @@ error: log error event, with option to parse error.</p>
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='eventpolling'>
+      eventPolling
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A decorator used to poll remote endpoint with action.</p>
+
+    <div class='pre p1 fill-light mt0'>eventPolling</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>config</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    Config.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.until</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
+  </td>
+  <td class='break-word'><span>The function to set conditions to stop the polling and return the data.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.mapping</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
+  
+    (default <code>res=&gt;res</code>)
+  </td>
+  <td class='break-word'><span>The mapping function to transform response to the data format needed.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.interval</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
+  
+    (default <code>1000</code>)
+  </td>
+  <td class='break-word'><span>Time to wait between each polling call.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>config.timeout</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
+  
+    (default <code>30*1000</code>)
+  </td>
+  <td class='break-word'><span>The max time to wait for the polling before abort it.
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>:
+        The decorated function returns the polling result.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='eventtimer'>
       eventTimer
     </h3>
@@ -1190,7 +1030,7 @@ and send metrics using the client attached in context.</p>
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.parseLabel</span> <code class='quiet'><a href="#storagehookmethod">StorageHookMethod</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>?</code>
+  <td class='break-word'><span class='code bold'>options.parseLabel</span> <code class='quiet'>StorageHookMethod&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>?</code>
   
     (default <code>()=&gt;{}</code>)
   </td>
@@ -1282,7 +1122,7 @@ and send metrics using the client attached in context.</p>
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.bypassHook</span> <code class='quiet'><a href="#bypasshook">BypassHook</a>?</code>
+  <td class='break-word'><span class='code bold'>options.bypassHook</span> <code class='quiet'>BypassHook?</code>
   
     (default <code>()=&gt;false</code>)
   </td>
@@ -1293,7 +1133,7 @@ and send metrics using the client attached in context.</p>
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.storeHook</span> <code class='quiet'><a href="#storehook">StoreHook</a>?</code>
+  <td class='break-word'><span class='code bold'>options.storeHook</span> <code class='quiet'>StoreHook?</code>
   
     (default <code>()=&gt;{}</code>)
   </td>
@@ -1304,7 +1144,7 @@ and send metrics using the client attached in context.</p>
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.beforeHook</span> <code class='quiet'><a href="#beforehook">BeforeHook</a>?</code>
+  <td class='break-word'><span class='code bold'>options.beforeHook</span> <code class='quiet'>BeforeHook?</code>
   
     (default <code>()=&gt;{}</code>)
   </td>
@@ -1315,7 +1155,7 @@ and send metrics using the client attached in context.</p>
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.actionHook</span> <code class='quiet'><a href="#actionhook">ActionHook</a>?</code>
+  <td class='break-word'><span class='code bold'>options.actionHook</span> <code class='quiet'>ActionHook?</code>
   
     (default <code>(param,meta,context,action)=&gt;action(param,meta,context)</code>)
   </td>
@@ -1326,7 +1166,7 @@ and send metrics using the client attached in context.</p>
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.afterHook</span> <code class='quiet'><a href="#afterhook">AfterHook</a>?</code>
+  <td class='break-word'><span class='code bold'>options.afterHook</span> <code class='quiet'>AfterHook?</code>
   
     (default <code>()=&gt;{}</code>)
   </td>
@@ -1337,7 +1177,7 @@ and send metrics using the client attached in context.</p>
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.errorHook</span> <code class='quiet'><a href="#errorhook">ErrorHook</a>?</code>
+  <td class='break-word'><span class='code bold'>options.errorHook</span> <code class='quiet'>ErrorHook?</code>
   
     (default <code>()=&gt;{}</code>)
   </td>
@@ -1360,7 +1200,7 @@ and send metrics using the client attached in context.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#decorator">Decorator</a></code>:
+      <code>Decorator</code>:
         The decorator with behaviour defined by the hooks and returns the expected result of the action.
 
       
@@ -1371,1477 +1211,6 @@ and send metrics using the client attached in context.</p>
 
   
 
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='context'>
-      Context
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Context - the rag houses functional instances attached to the action function to make calls outside the function.
-It is the thrid arg in the standard action function signature,
-and passed to hook functions through standard hook definitions.</p>
-
-    <div class='pre p1 fill-light mt0'>Context</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>logger, metrics, database client can be attached to the context and being used by errorHooks,
-  so that errorHooks are not bundled <span class="hljs-keyword">with</span> the clients</pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='action'>
-      Action
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Action - the decorated action function itself.
-It is accessible in the hook definition to make decorators
-to call the action function recursively or modify its args/behaviour.</p>
-
-    <div class='pre p1 fill-light mt0'>Action(param: <a href="#param">Param</a>, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?): any</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`errorRetry`</span> decorator calls Action <span class="hljs-keyword">with</span> updated Meta under valid conditions
-  to mute the first error thrown <span class="hljs-keyword">from</span> the action <span class="hljs-function"><span class="hljs-keyword">function</span>
-
-  `<span class="hljs-title">eventLogger</span>` <span class="hljs-title">decorator</span> <span class="hljs-title">parse</span> <span class="hljs-title">Action</span>.<span class="hljs-title">name</span> <span class="hljs-title">in</span> <span class="hljs-title">storeHook</span> <span class="hljs-title">and</span> <span class="hljs-title">automatically</span> <span class="hljs-title">attachs</span> <span class="hljs-title">it</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">log</span></span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='store'>
-      Store
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Store - the arg stores temprorary variables to be used by different hooks.
-It is produced in the storeHook and then passed as the last arg of beforeHook, actionHook, afterHook, errorHook.</p>
-
-    <div class='pre p1 fill-light mt0'>Store</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, any>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`eventLogger`</span> decorator parse Action.name to <span class="hljs-string">`event`</span> and put it <span class="hljs-keyword">in</span> the store,
-  which is later accessed <span class="hljs-keyword">in</span> afterHook to be logged when action call succeeds</pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='bypasshook'>
-      BypassHook
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>BypassHook definition.</p>
-
-    <div class='pre p1 fill-light mt0'>BypassHook(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
-        If the condition is met to bypass the decorator.
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`eventLogger`</span> will bypass <span class="hljs-keyword">if</span> logger instance is not presented <span class="hljs-keyword">in</span> the context</pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='bypasshookmethod'>
-      BypassHookMethod
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>BypassHookMethod.</p>
-
-    <div class='pre p1 fill-light mt0'>BypassHookMethod(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?): any</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='storehook'>
-      StoreHook
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>StoreHook definition.</p>
-
-    <div class='pre p1 fill-light mt0'>StoreHook(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: <a href="#action">Action</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>action</span> <code class='quiet'>(<a href="#action">Action</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
-        The values/instances put in temporary store to be accessed by other hooks.
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='storagehookmethod'>
-      StorageHookMethod
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>StorageHookMethod.</p>
-
-    <div class='pre p1 fill-light mt0'>StorageHookMethod(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: <a href="#action">Action</a>?): T</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>action</span> <code class='quiet'>(<a href="#action">Action</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>T</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='beforehook'>
-      BeforeHook
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>BeforeHook definition.</p>
-
-    <div class='pre p1 fill-light mt0'>BeforeHook(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: <a href="#action">Action</a>?, store: <a href="#store">Store</a>?)</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>action</span> <code class='quiet'>(<a href="#action">Action</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>store</span> <code class='quiet'>(<a href="#store">Store</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>BeforeHook can be used to <span class="hljs-keyword">do</span> param validation</pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='actionhook'>
-      ActionHook
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>ActionHook definition.</p>
-
-    <div class='pre p1 fill-light mt0'>ActionHook(param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: <a href="#action">Action</a>?, store: <a href="#store">Store</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>action</span> <code class='quiet'>(<a href="#action">Action</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>store</span> <code class='quiet'>(<a href="#store">Store</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>:
-        The augumented action with updated args. It shouldn't affect the expected result.
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='afterhook'>
-      AfterHook
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>AfterHook definition.</p>
-
-    <div class='pre p1 fill-light mt0'>AfterHook(result: any?, param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: <a href="#action">Action</a>?, store: <a href="#store">Store</a>?)</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>result</span> <code class='quiet'>(any?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>action</span> <code class='quiet'>(<a href="#action">Action</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>store</span> <code class='quiet'>(<a href="#store">Store</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='afterhookmethod'>
-      AfterHookMethod
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>AfterHookMethod.</p>
-
-    <div class='pre p1 fill-light mt0'>AfterHookMethod(result: any?, param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: <a href="#action">Action</a>?)</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>result</span> <code class='quiet'>(any?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>action</span> <code class='quiet'>(<a href="#action">Action</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='errorhook'>
-      ErrorHook
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>ErrorHook definition.</p>
-
-    <div class='pre p1 fill-light mt0'>ErrorHook(error: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)?, param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: <a href="#action">Action</a>?, store: <a href="#store">Store</a>?): (void | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a> | any)</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>error</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>action</span> <code class='quiet'>(<a href="#action">Action</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>store</span> <code class='quiet'>(<a href="#store">Store</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(void | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a> | any)</code>:
-        If anything other than void/undefined is returned, it would be returned as the reuslt of the decorated action.
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='errorhookmethod'>
-      ErrorHookMethod
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>ErrorHookMethod.</p>
-
-    <div class='pre p1 fill-light mt0'>ErrorHookMethod(error: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)?, param: <a href="#param">Param</a>?, meta: <a href="#meta">Meta</a>?, context: <a href="#context">Context</a>?, action: <a href="#action">Action</a>?): T</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>error</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>param</span> <code class='quiet'>(<a href="#param">Param</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>meta</span> <code class='quiet'>(<a href="#meta">Meta</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>context</span> <code class='quiet'>(<a href="#context">Context</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>action</span> <code class='quiet'>(<a href="#action">Action</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>T</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='decorator'>
-      Decorator
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Decorator definition.</p>
-
-    <div class='pre p1 fill-light mt0'>Decorator(action: <a href="#action">Action</a>): <a href="#action">Action</a></div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>action</span> <code class='quiet'>(<a href="#action">Action</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#action">Action</a></code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='param'>
-      Param
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Param - the arg houses the parameters for the action function logic.
-It is the first arg in the standard action function signature,
-and passed to hook functions through standard hook definitions.</p>
-
-    <div class='pre p1 fill-light mt0'>Param</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, NotFunction>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`eventLogger`</span> decorator has option to use afterHook to log Param object</pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='meta'>
-      Meta
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Meta - the arg houses the metadata attached to the action function to record where and how it is called.
-It is the second arg in the standard of action function signature,
-and passed to hook functions through standard hook definitions.</p>
-<p>Meta vs Context: meta contains strictly what would be put into the log/metrics.</p>
-
-    <div class='pre p1 fill-light mt0'>Meta</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, NotFunction>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-string">`eventLogger`</span> decorator has storeHook parsing the name <span class="hljs-keyword">of</span> the action,
-  pass it into actionHook to be included <span class="hljs-keyword">in</span> the Meta to call action,
-  and use afterbook to log all information <span class="hljs-keyword">in</span> the Meta object</pre>
-    
   
 
   
