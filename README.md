@@ -55,7 +55,7 @@ Let's measure the effect in LOC (Line of Code) and LOI (Level of Indent) by an e
 // import subscriptionApi from './api/subscription';
 // import restoreSubscription from './restore-subscription'
 
-import { errorRetry, errorHandler, chain } from '@opbi/toolchain/dist/hooks';
+import { errorRetry, errorHandler, chain } from '@opbi/toolchain';
 
 const retryOnTimeoutError = errorRetry({
   condition: e => e.type === 'TimeoutError'
@@ -173,14 +173,14 @@ Under the hood, the hooks are implemented in the [decorators](https://innolitics
 
 Currently available hooks are as following:
 
-* [callPolling](https://github.com/opbi/toolchain/blob/master/src/decorators/call-polling.js)
-* [errorCounter](https://github.com/opbi/toolchain/blob/master/src/decorators/error-counter.js)
-* [errorHandler](https://github.com/opbi/toolchain/blob/master/src/decorators/error-handler.js)
-* [errorMute](https://github.com/opbi/toolchain/blob/master/src/decorators/error-mute.js)
-* [errorRetry](https://github.com/opbi/toolchain/blob/master/src/decorators/error-retry.js)
-* [errorTag](https://github.com/opbi/toolchain/blob/master/src/decorators/error-tag.js)
-* [eventLogger](https://github.com/opbi/toolchain/blob/master/src/decorators/event-logger.js)
-* [eventTimer](https://github.com/opbi/toolchain/blob/master/src/decorators/event-timer.js)
+* [errorCounter](https://github.com/opbi/toolchain/blob/master/src/hooks/error-counter.js)
+* [errorHandler](https://github.com/opbi/toolchain/blob/master/src/hooks/error-handler.js)
+* [errorMute](https://github.com/opbi/toolchain/blob/master/src/hooks/error-mute.js)
+* [errorRetry](https://github.com/opbi/toolchain/blob/master/src/hooks/error-retry.js)
+* [errorTag](https://github.com/opbi/toolchain/blob/master/src/hooks/error-tag.js)
+* [eventLogger](https://github.com/opbi/toolchain/blob/master/src/hooks/event-logger.js)
+* [eventPoller](https://github.com/opbi/toolchain/blob/master/src/hooks/event-poller.js)
+* [eventTimer](https://github.com/opbi/toolchain/blob/master/src/hooks/event-timer.js)
 
 Hooks are named in a convention to reveal where and how it works `[hook point][what it is/does]`, e.g. *errorCounter, eventLogger*.
 
@@ -188,7 +188,7 @@ Hook points are named `before, after, error` and `event` (multiple points).
 
 #### Extension
 
-You can easily create more hooks with [addHooks](https://github.com/opbi/toolchain/blob/master/src/decorators/helpers/add-hooks.js). Open source them aligning with the above standards are very encouraged.
+You can easily create more standardised hooks with [addHooks](https://github.com/opbi/toolchain/blob/master/src/hooks/helpers/add-hooks.js) helper. Open source them aligning with the above standards via pull requests or individual packages are highly encouraged.
 
 ---
 #### Decorators
@@ -207,6 +207,18 @@ class SubscriptionAPI:
     errorRetry()
   )(subscriptionApi.cancel)
 ```
+#### Adaptors
+To make plugging in @opbi/toolchain hooks to existing systems easier, adaptors are introduced to bridge different function signature standards.
+```js
+const handler = chain(
+  adaptorExpress(),
+  errorRetry()
+)(subscriptionApi.cancel)
+
+handler(req, res, next);
+```
+#### Redux
+TBC
 
 #### Pipe Operator
 We are excited to see how pipe operator will be rolled out and hooks can be elegantly plugged in.
