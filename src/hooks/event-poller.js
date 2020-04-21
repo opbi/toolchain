@@ -13,7 +13,7 @@ import addHooks from './helpers/add-hooks';
  * @param {number}  [config.timeout] - The max time to wait for the polling before abort it.
  * @returns {Function}        The decorated function returns the polling result.
  */
-const eventPolling = ({
+const eventPoller = ({
   until,
   mapping = (res) => res,
   interval = 1000,
@@ -42,7 +42,7 @@ const eventPolling = ({
 
       // pass pollingStart, pollingData to context of the next call
       // so that internal state can be passed between action calls
-      return eventPolling({ until, mapping, interval, timeout })(action)(p, m, {
+      return eventPoller({ until, mapping, interval, timeout })(action)(p, m, {
         ...c,
         pollingData,
         pollingStart,
@@ -50,4 +50,4 @@ const eventPolling = ({
     },
   });
 
-export default eventPolling;
+export default eventPoller;

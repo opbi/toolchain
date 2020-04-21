@@ -1,13 +1,13 @@
-import eventPolling from '../event-polling';
+import eventPoller from '../event-poller';
 
-describe('eventPolling', () => {
+describe('eventPoller', () => {
   it('return data combined from multi polling responses', async () => {
     const call = jest
       .fn()
       .mockReturnValueOnce({ finished: false, value: 'no' })
       .mockReturnValueOnce({ finished: false, value: 'no' })
       .mockReturnValueOnce({ finished: true, value: 'yes' });
-    const decorated = eventPolling({
+    const decorated = eventPoller({
       until: (result) => result.finished,
     })(call);
     const data = await decorated();
@@ -20,7 +20,7 @@ describe('eventPolling', () => {
       .mockReturnValueOnce({ ok: false, value: 'no' })
       .mockReturnValueOnce({ ok: false, value: 'no' })
       .mockReturnValueOnce({ ok: true, value: 'yes' });
-    const decorated = eventPolling({
+    const decorated = eventPoller({
       until: ({ ok }) => ok,
       mapping: ({ value }) => value,
     })(original);
@@ -34,7 +34,7 @@ describe('eventPolling', () => {
       .mockReturnValueOnce({ ok: false, value: 'no' })
       .mockReturnValueOnce({ ok: false, value: 'no' })
       .mockReturnValueOnce({ ok: true, value: 'yes' });
-    const decorated = eventPolling()(original);
+    const decorated = eventPoller()(original);
     const result = await decorated();
     expect(result).toEqual({ ok: false, value: 'no' });
   });
@@ -46,7 +46,7 @@ describe('eventPolling', () => {
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('yes');
     const startTime = Date.now();
-    const decorated = eventPolling({
+    const decorated = eventPoller({
       until: (result) => result === 'yes',
       interval: 2 * 1000,
     })(original);
@@ -61,7 +61,7 @@ describe('eventPolling', () => {
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('yes');
-    const decorated = eventPolling({
+    const decorated = eventPoller({
       until: (result) => result === 'yes',
       interval: 2 * 1000,
       timeout: 2000,
@@ -80,7 +80,7 @@ describe('eventPolling', () => {
       .mockImplementationOnce(() => {
         throw Error('expected');
       });
-    const decorated = eventPolling({
+    const decorated = eventPoller({
       until: (result) => result === 'yes',
     })(original);
 
