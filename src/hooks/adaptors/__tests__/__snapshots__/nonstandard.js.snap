@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`adaptorNonstandard helps to use hook on non-standard functions with meta, context 1`] = `
+Array [
+  Array [
+    Object {
+      "event": "original",
+      "param": Array [
+        1,
+        2,
+        3,
+      ],
+    },
+    "original",
+  ],
+]
+`;
+
+exports[`adaptorNonstandard helps to use hooks on non-standard functions without meta, context 1`] = `
+Array [
+  Array [
+    "yes",
+    Object {},
+    Object {},
+  ],
+  Array [
+    "yes",
+    Object {
+      "maxRetries": 3,
+      "retries": 1,
+    },
+    Object {},
+  ],
+]
+`;

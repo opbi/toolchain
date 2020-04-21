@@ -1,23 +1,23 @@
 /*
+  a decorator enhancer
+  used to enhance decorators to preserve the input function name
+  reserveName(decorator)(inputFunction)(...args)
+
   when using curry/arrow functions to write decorators
   an anonymous function (.name: undefined) would be returned
   this helper helps to reserve the funcion name
  */
-const setFunctionName = (targetFunction, name) => {
-  const output = targetFunction;
-  Object.defineProperty(output, 'name', {
-    value: name,
+const reserveNameLength = (decorator) => (inputFunction) => {
+  const decorated = decorator(inputFunction);
+  Object.defineProperty(decorated, 'name', {
+    value: inputFunction.name,
     configurable: true,
   });
-  return output;
+  Object.defineProperty(decorated, 'length', {
+    value: inputFunction.length,
+    configurable: true,
+  });
+  return decorated;
 };
 
-/*
-  a decorator enhancer
-  used to enhance decorators to preserve the input function name
-  reserveName(decorator)(inputFunction)(...args)
- */
-const reserveName = (decorators) => (inputFunction) =>
-  setFunctionName(decorators(inputFunction), inputFunction.name);
-
-export default reserveName;
+export default reserveNameLength;
