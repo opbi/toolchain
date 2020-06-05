@@ -1,4 +1,6 @@
-<p align="center">🧲</p>
+<p align="center">
+  <img alt="toolchain" src="https://raw.githubusercontent.com/opbi/logo/master/toolchain/toolchain.svg?sanitize=true" width="160">
+</p>
 
 <h3 align="center">toolchain</h3>
 <p align="center" style="margin-bottom: 2em;"> standardised observability client set</p>
